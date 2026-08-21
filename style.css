@@ -1,0 +1,525 @@
+
+.Main{
+  width: 1350px;
+  height: 60px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  -webkit-box-shadow: 2px 13px 7px -1px rgba(0,0,0,0.32); 
+  box-shadow: 2px 13px 7px -1px rgba(0,0,0,0.32);
+  position: fixed;
+}
+.Main:hover{
+  
+}
+#min{
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 15px;
+  right: 190px;
+  /* border: 2px solid black; */
+  width: 720px;
+  position: fixed;
+}
+#item2,#item3,#item4,#item5,#item6{
+  color: black;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+}
+#item1{
+height: 40px ;
+position: relative;
+top: 1px;
+left: 90px;
+position: fixed;
+
+}
+#head{
+  font-size: 40px;
+  position: relative;
+  top: 100px;
+  text-align: center;
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+#head1{
+   position: absolute;
+   top: 60px;
+   right: 35%;
+   font-size: 70px;
+   color: rgb(19, 112, 184);
+
+}
+#head2{
+  color: gray;
+  position: relative;
+  top: 75px;
+  font-size: 25px;
+  letter-spacing: 0px;
+}
+#m{
+  margin-top: -8px;
+  padding-top: 6px;
+  width: 120px;
+  height: 30px;
+  border: 2px solid linear-gradient(90deg, #48c6ef 0%, #6f86d6 100%);
+  background-color: rgb(0, 123, 255);
+  border-radius: 25px;
+  text-align: center;
+}
+#item7{
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+
+}
+#but1{
+  margin: 0px;
+  padding: 8px;
+  position: relative;
+  width: 120px;
+  height: 30px;
+    border: 2px solid linear-gradient(90deg, #48c6ef 0%, #6f86d6 100%);
+  background-color: rgb(0, 123, 255);
+  border-radius: 25px;
+  text-align: center;
+}
+#item{
+  color: grey;
+    text-decoration: none;
+
+}
+#but2{
+    margin: 0px;
+  padding: 6.5px;
+    position: relative;
+  width: 150px;
+  height: 30px;
+    border: 2px solid grey;
+  border-radius: 15px;
+    border-radius: 25px;
+  text-align: center;
+}
+#d{
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+position: relative;
+top: 200px ;
+left: 38%;
+}
+#comp{
+  position: absolute;
+  top: 240px;
+  left: 140px;
+  height: 170px;
+}
+#air{
+  height: 150px;
+  width: 220px;
+  position: absolute;
+  top: 240px ;
+  right: 70px;
+}
+#aircopy{
+  height: 150px;
+  width: 240px;
+  position: absolute;
+  top: 500px;
+  left: 140px;
+  
+}
+#globe{
+    position: absolute;
+  top: 500px;
+  right: 140px;
+  height: 190px;
+}
+/* Section Container Setup */
+    #card-section {
+      position: relative;
+      top: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Common Card Styles */
+    .card {
+      position: relative;
+      width: 320px;
+      height: 380px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Card 1: Left Background */
+    #card-left {
+      background-color: #cde3f0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /* Card 2: Center (Video Container) */
+    #card-center {
+      background-color: #000000;
+    }
+
+    /* Card 3: Right Background */
+    .card-right {
+      background-color: #f6f1d5;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /* Image Styling */
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Embedded YouTube Frame Fix */
+    .video-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 24px;
+    }
+
+    /* Responsive adjustments for mobile screens */
+    @media (max-width: 900px) {
+      .card-section {
+        flex-direction: column;
+      }
+      .card {
+        width: 100%;
+        max-width: 340px;
+      }
+    }
+    #tag{
+      width: 100%;
+      position: relative;
+      top:450px;
+    }
+
+
+
+/* ====================================================
+   MAIN PARENT CONTAINER:
+   Move or position the entire section by tweaking this!
+   ==================================================== */
+#smit-section-container {
+  position: relative;
+  top: 550px;
+  width: 100%;
+  max-width: 1100px;
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+
+  margin: 40px auto; /* Moves the whole component easily */
+  /* Example for animation/movement:
+     transform: translate(0px, 0px); 
+     transition: all 0.3s ease; 
+  */
+}
+
+#section-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Central Content Styling */
+#center-box {
+  text-align: center;
+  z-index: 2;
+}
+
+#pill-tag {
+  display: inline-block;
+  background-color: #0077c8;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+#main-heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+#heading-part-1,
+#heading-part-2 {
+  display: inline-block;
+  background-color: #d1e4ff;
+  padding: 2px 10px;
+}
+
+#heading-part-1 {
+  margin-bottom: 8px;
+}
+
+/* Generic layout styles for card containers */
+#feature-top-left,
+#feature-top-right,
+#feature-mid-left,
+#feature-mid-right,
+#feature-bottom-left,
+#feature-bottom-right {
+  position: absolute;
+  width: 180px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Positions relative to #smit-section-container */
+#feature-top-left {
+  top: 30px;
+  left: 15%;
+}
+
+#feature-top-right {
+  top: 30px;
+  right: 15%;
+}
+
+#feature-mid-left {
+  top: 40%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+#feature-mid-right {
+  top: 40%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#feature-bottom-left {
+  bottom: 30px;
+  left: 15%;
+}
+
+#feature-bottom-right {
+  bottom: 30px;
+  right: 15%;
+}
+
+/* White Card Box Styles */
+#icon-container-1,
+#icon-container-2,
+#icon-container-3,
+#icon-container-4,
+#icon-container-5,
+#icon-container-6 {
+  background-color: #ffffff;
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Icon dimensions */
+#icon-1, #icon-2, #icon-3, #icon-4, #icon-5, #icon-6 {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* Text styles */
+#title-1, #title-2, #title-3, #title-4, #title-5, #title-6 {
+  font-weight: 700;
+  color: #222222;
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+#subtitle-1, #subtitle-2, #subtitle-3, #subtitle-4, #subtitle-5, #subtitle-6 {
+  font-weight: 400;
+  color: #777777;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+#contact{
+    position: absolute;
+    top: 670px;
+    left: 1250px;
+    width: 105px;
+    position: fixed;
+}
+.contact-img{
+  width: 70px;
+  height: 70px;
+      border-radius: 50%;
+      border-end-end-radius: 50%;
+}
+#tag2{
+  position: relative;
+  top: 52px;
+  right: 1%;
+}
+#pic1{
+  border-radius:50px ;
+  height: 500px ;
+  width: 500px ;
+  position: relative;
+  top: 180px;
+  left: 700px;
+}
+.h2{
+  color: rgb(91, 174, 91);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+  position: absolute;
+  top: 500px;
+  left: 120px;
+}
+.h1{
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+  font-size: 40px;
+  position: absolute;
+  top: 520px;
+  left: 120px;
+}
+.p{
+  position: absolute;
+  top: 660px;
+  left: 120px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+}
+.tag3{
+  height: 250px;
+   width: 1357px;
+   position: relative;
+   top: 300px;
+   right: 1%;
+}
+#end{
+  position: relative;
+  top: 400px;
+  right: 1%;
+  width: 1357px;
+}
+
+#tag4{
+  height: 250px;
+   width: 1357px;
+   position: relative;
+   top: 100px;
+   right: 1%;
+}
+
+#tag5{
+  height: 650px;
+   width: 1357px;
+   position: relative;
+   top: 300px;
+   right: 1%;
+}
+#the-one{
+      font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  letter-spacing: 0px;
+  position: relative;
+  top: 450px;
+  left: 120px;
+}
+#form{
+  position: relative;
+  top: 450px;
+  left: 120px;
+}
+#input1{
+    width: 210px;
+    height: 30px;
+    font-size: 21px;
+    border-radius: 15px;
+    
+}
+#the-main{
+  font-size: 12px;
+  position: relative;
+  top: 500px;
+  left: 75px;
+  width: 1230px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+#boxes{
+  font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+  font-weight:lighter;
+  font-style: normal;
+  letter-spacing: 0px;
+  margin: 10px;
+border: 1px solid grey;
+border-radius: 20px;
+width: 270px;
+height: 140px;
+}
+
+
