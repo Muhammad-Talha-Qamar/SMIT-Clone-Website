@@ -391,11 +391,13 @@ left: 38%;
   margin-top: 2px;
 }
 #contact{
-    position: absolute;
-    top: 670px;
-    left: 1250px;
-    width: 105px;
-    position: fixed;
+width: 105px;
+    position: relative;
+    right: 100%;
+    top: 100px;
+
+    
+    
 }
 .contact-img{
   width: 70px;
@@ -471,7 +473,7 @@ left: 38%;
 
 #tag4{
   height: 250px;
-   width: 1357px;
+   width: 100%;
    position: relative;
    top: 100px;
    right: 1%;
@@ -479,7 +481,7 @@ left: 38%;
 
 #tag5{
   height: 650px;
-   width: 1357px;
+   width: 100%;
    position: relative;
    top: 300px;
    right: 1%;
@@ -495,6 +497,7 @@ left: 38%;
   left: 120px;
 }
 #form{
+  display: inline;
   position: relative;
   top: 450px;
   left: 120px;
