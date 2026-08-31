@@ -412,6 +412,7 @@ left: 38%;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-around;
   position: relative;
   top: 110px ;
   height: 668px;
