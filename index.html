@@ -1,156 +1,633 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saylani Mass IT Training</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#007bff',
+              primary: '#0b73b7',
+              sky: '#1370b8',
+              green: '#6da800',
+              mega: '#087fc3',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .courses-mega {
+      display: none;
+    }
+    .courses-nav.is-open > .courses-mega {
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .courses-nav.is-open > .courses-mega {
+        display: block;
+      }
+      .courses-mega {
+        position: fixed;
+        left: 50%;
+        top: var(--courses-mega-top, 64px);
+        z-index: 60;
+        width: min(calc(100vw - 30px), 72rem);
+        transform: translateX(-50%);
+        border: 1px solid #e5e7eb;
+        border-radius: 0 0 10px 10px;
+        background: #fff;
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      }
+      .courses-mega-bridge {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: var(--courses-mega-gap, 64px);
+      }
+      .courses-mega__panel {
+        overflow: hidden;
+        border-radius: 0 0 10px 10px;
+      }
+    }
+    @media (max-width: 767px) {
+      .courses-nav.is-open > .courses-mega {
+        display: block;
+      }
+      .courses-mega {
+        position: static;
+        width: 100%;
+        max-height: min(70vh, 520px);
+        overflow-y: auto;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-top: 0.35rem;
+        background: #fff;
+      }
+      .courses-mega-bridge {
+        display: none;
+      }
+    }
+    .courses-mega__title,
+    .courses-mega__link-text,
+    .courses-mega__card-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
-<body>
-  <div class="Main">
-    <img id="item1" class="animate__animated animate__fadeInLeft" src="./transparent_logo.png" alt="SMIT Logo">
-    
-    <div id="min" class="animate__animated animate__fadeInDown">
-        <div><a id="item2" href="./index.html">Home</a></div>
-        <div><a id="item3" href="./about.html">About</a></div>
-        <div><a id="item4" href="https://www.saylanimit.com/">Courses</a></div>
-        <div><a id="item5" href="./campuses.html">Campuses</a></div>
-        <div><a id="item6" href="https://www.saylanimit.com/result">Check Result</a></div>
-        <div id="m"><a id="item7" href="https://www.saylanimit.com/enroll">Enroll Now</a></div>
-    </div>
-</div>
+<body class="font-montserrat bg-white text-gray-900 antialiased overflow-x-hidden">
 
-<div class="animate__animated animate__fadeInUp" id="head">
-    <h1>Building Pakistan's</h1>
-    <h2 id="head1">Tech Future</h2>
-    <p id="head2">Changing Lives. Building Careers. Shaping the <br> Future.</p>
-    <img src="./saylani_logo.webp" style="position: relative;top: 90px;"  height="40px" width="220px" alt="">
-</div>
-<div class="animate__animated animate__fadeInUp" id="d">
-    <div id="but1"><a id="item7" href="">Enroll Now</a></div>
-    <div id="but2"><a id="item" href="">Explore Courses</a></div>
-</div>
-<img class="animate__animated animate__fadeInBottomRight"  id="comp" src="./comp.png" alt="">
-<img class="animate__animated animate__fadeInBottomLeft "  id="air" src="./air.png" alt="">
-<img class="animate__animated animate__fadeInTopRight "  id="aircopy" src="./air copy.png" alt="">
-<img class="animate__animated animate__fadeInTopLeft"  id="globe" src="./globe.png" alt="">
-<!-- MAIN CARD SECTION -->
-  <section class="animate__animated animate__backInUp animate__delay-2s" id="card-section">
-    
-    <!-- Left Card -->
-    <div class="animate__animated a" id="card card-left">
-      <!-- Replace with your left image URL -->
-      <img src="./pic guy.svg" alt="Student in Suit" class="card-img" />
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 z-50 w-full bg-white shadow-[2px_13px_7px_-1px_rgba(0,0,0,0.32)]">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
+      <a href="./index.html" class="shrink-0 animate__animated animate__fadeInLeft">
+        <img src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo" class="h-10 w-auto">
+      </a>
+
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 md:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+      </button>
+
+      <div id="nav-menu" class="absolute left-0 top-full hidden w-full flex-col gap-1 border-t border-gray-100 bg-white px-4 py-4 shadow-lg animate__animated animate__fadeInDown md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 md:shadow-none lg:gap-8 [&.is-open]:flex">
+        <a href="./index.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Home</a>
+        <a href="./about.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">About</a>
+        <div class="courses-nav relative w-full md:w-auto" id="courses-nav">
+          <button
+            type="button"
+            id="courses-trigger"
+            class="flex w-full items-center justify-between rounded px-2 py-2 text-left text-sm font-medium text-black hover:text-brand-primary md:inline-flex md:w-auto md:justify-start md:py-0"
+            aria-expanded="false"
+            aria-controls="courses-mega"
+            aria-haspopup="true">
+            <span>Courses</span>
+            <i class="fa-solid fa-chevron-down ml-2 text-[10px] text-slate-500 md:hidden" aria-hidden="true"></i>
+          </button>
+          <div id="courses-mega" class="courses-mega" role="region" aria-label="Courses menu">
+            <div class="courses-mega-bridge" aria-hidden="true"></div>
+            <div class="courses-mega__panel">
+              <div class="courses-mega__categories grid grid-cols-1 gap-6 px-5 py-6 sm:grid-cols-2 md:grid-cols-3 min-[1200px]:grid-cols-5 min-[1200px]:gap-5 min-[1200px]:px-8 min-[1200px]:py-7" id="courses-categories"></div>
+              <div class="courses-mega__top border-t border-[#e5e7eb] bg-[#f8f9fa] px-5 py-5 min-[1200px]:px-8">
+                <h3 class="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-700">
+                  <i class="fa-solid fa-graduation-cap text-slate-500" aria-hidden="true"></i>
+                  Top Courses
+                </h3>
+                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 min-[1200px]:grid-cols-4" id="courses-top"></div>
+              </div>
+              <div class="flex min-h-[52px] items-center justify-center border-t border-[#e5e7eb] bg-white px-4">
+                <a href="./courses.html" class="inline-flex items-center gap-2 text-sm font-medium text-brand-mega transition hover:text-brand-primary">
+                  See All Courses
+                  <i class="fa-solid fa-arrow-up-right text-xs" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="./campuses.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Campuses</a>
+        <a href="https://www.saylanimit.com/result" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Check Result</a>
+        <a href="https://www.saylanimit.com/enroll" class="mt-1 inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-primary md:mt-0">Enroll Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative mx-auto max-w-7xl px-4 pb-8 pt-28 sm:px-6 lg:px-10 lg:pt-32">
+    <div class="relative z-10 mx-auto max-w-3xl text-center animate__animated animate__fadeInUp">
+      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Building Pakistan's</h1>
+      <h2 class="mt-1 text-4xl font-bold text-brand-sky sm:text-5xl md:text-6xl lg:text-7xl">Tech Future</h2>
+      <p class="mt-4 text-base text-gray-500 sm:text-lg md:text-2xl">
+        Changing Lives. Building Careers. Shaping the<br class="hidden sm:inline"> Future.
+      </p>
+      <img src="./assets/images/logos/saylani_logo.webp" alt="Saylani Welfare" class="mx-auto mt-8 h-10 w-auto max-w-[220px] object-contain" width="220" height="40">
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4 animate__animated animate__fadeInUp">
+        <a href="https://www.saylanimit.com/enroll" class="inline-flex min-w-[120px] items-center justify-center rounded-full bg-brand-blue px-6 py-2.5 text-sm font-medium text-white transition hover:bg-brand-primary">Enroll Now</a>
+        <a href="https://www.saylanimit.com/" class="inline-flex min-w-[150px] items-center justify-center rounded-full border-2 border-gray-400 px-6 py-2 text-sm font-medium text-gray-500 transition hover:border-brand-primary hover:text-brand-primary">Explore Courses</a>
+      </div>
     </div>
 
-    <!-- Center Card (Live Playing YouTube Video) -->
-    <div class="card card-center">
-      <div class="video-container">
-        <iframe 
-          src="https://www.youtube.com/embed/m-pAPx-zkx4" 
+    <!-- Decorative illustrations -->
+    <img src="./assets/images/home/comp.png" alt="" class="pointer-events-none absolute left-2 top-36 hidden h-28 w-auto animate__animated animate__fadeInBottomRight sm:block md:left-8 md:top-40 md:h-36 lg:left-10 lg:h-[170px]" aria-hidden="true">
+    <img src="./assets/images/home/air.png" alt="" class="pointer-events-none absolute right-2 top-36 hidden h-24 w-auto max-w-[180px] animate__animated animate__fadeInBottomLeft sm:block md:right-8 md:top-40 md:h-32 md:max-w-[220px] lg:right-10" aria-hidden="true">
+    <img src="./assets/images/home/air-copy.png" alt="" class="pointer-events-none absolute bottom-0 left-2 hidden h-24 w-auto max-w-[180px] animate__animated animate__fadeInTopRight sm:block md:left-8 md:h-32 md:max-w-[240px] lg:left-10" aria-hidden="true">
+    <img src="./assets/images/home/globe.png" alt="" class="pointer-events-none absolute bottom-0 right-2 hidden h-28 w-auto animate__animated animate__fadeInTopLeft sm:block md:right-8 md:h-40 lg:right-10 lg:h-[190px]" aria-hidden="true">
+  </section>
+
+  <!-- Media cards -->
+  <section class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10 lg:py-16 animate__animated animate__backInUp animate__delay-2s">
+    <div class="flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-6">
+      <div class="h-[320px] w-full max-w-[320px] overflow-hidden rounded-3xl bg-[#cde3f0] shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.12)] sm:h-[380px]">
+        <img src="./assets/images/home/pic-guy.svg" alt="Student in Suit" class="h-full w-full object-cover object-bottom">
+      </div>
+      <div class="h-[320px] w-full max-w-[320px] overflow-hidden rounded-3xl bg-black shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.12)] sm:h-[380px]">
+        <iframe
+          class="h-full w-full rounded-3xl border-0"
+          src="https://www.youtube.com/embed/m-pAPx-zkx4"
           title="Saylani Welfare International Trust"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
       </div>
+      <div class="h-[320px] w-full max-w-[320px] overflow-hidden rounded-3xl bg-[#f6f1d5] shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.12)] sm:h-[380px]">
+        <img src="./assets/images/home/home_girl.svg" alt="Student with books" class="h-full w-full object-cover object-bottom">
+      </div>
     </div>
-   
-    <!-- Right Card -->
-    <div class="card card-right">
-      <!-- Replace with your right image URL -->
-      <img src="./home_girl.svg" alt="Student with books" class="card-img" />
-    </div>
-
   </section>
 
-  <img src="./tag.png" class="animate__animated animate__lightSpeedInLeft animate__delay-3s" id="tag" alt="" >
-<!-- MAIN PARENT CONTAINER: Move or animate this single element -->
-  <div id="smit-section-container">
-
-    <div id="section-wrapper">
-
-      <!-- Center Main Content -->
-      <div id="center-box" class="animate__animated animate__fadeInUp animate__delay-4s">
-        <div id="pill-tag">Why Choose SMIT?</div>
-        <h1 id="main-heading">
-          <span id="heading-part-1">Empowering You with World-Class</span>
-          <span id="heading-part-2">IT Training & Proven Success</span>
-        </h1>
+  <!-- Stats (dynamic replacement for tag.png) -->
+  <section class="animate__animated animate__lightSpeedInLeft animate__delay-3s w-full bg-gradient-to-r from-[#0b73b7] via-[#3a9a7a] to-[#6da800] py-10 sm:py-12 md:py-14" aria-label="SMIT impact statistics">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 text-center text-white sm:px-6 md:grid-cols-4 md:gap-4 lg:px-10">
+      <div>
+        <p class="text-2xl font-extrabold sm:text-3xl md:text-4xl">200,000+</p>
+        <p class="mt-2 text-xs font-medium uppercase tracking-wide sm:text-sm">Students Trained</p>
       </div>
-
-      <!-- Feature 1: Top Left -->
-      <div class="animate__animated animate__fadeInTopLeft animate__delay-4s" id="feature-top-left">
-        <div id="icon-container-1">
-          <img id="icon-1" src="https://img.icons8.com/color/96/student-male.png" alt="Training Icon">
-        </div>
-        <p id="title-1">Hands-On Training &</p>
-        <p id="subtitle-1">Real-World Projects</p>
+      <div>
+        <p class="text-2xl font-extrabold sm:text-3xl md:text-4xl">400+</p>
+        <p class="mt-2 text-xs font-medium uppercase tracking-wide sm:text-sm">Trainers</p>
       </div>
-
-      <!-- Feature 2: Top Right -->
-      <div class="animate__animated animate__fadeInTopRight animate__delay-4s" id="feature-top-right">
-        <div id="icon-container-2">
-          <img id="icon-2" src="./employ.webp" alt="Employment Icon">
-        </div>
-        <p id="title-2">70% Employment &</p>
-        <p id="subtitle-2">Freelancing Success Rate</p>
+      <div>
+        <p class="text-2xl font-extrabold sm:text-3xl md:text-4xl">70%</p>
+        <p class="mt-2 text-xs font-medium uppercase tracking-wide sm:text-sm">Employment Success</p>
       </div>
-
-      <!-- Feature 3: Middle Left -->
-      <div class="animate__animated animate__fadeInTopLeft animate__delay-4s" id="feature-mid-left">
-        <div id="icon-container-3">
-          <img id="icon-3" src="https://img.icons8.com/color/96/graduation-cap.png" alt="Affordable Icon">
-        </div>
-        <p id="title-3">Affordable & Accessible</p>
-        <p id="subtitle-3">Education for All</p>
+      <div>
+        <p class="text-2xl font-extrabold sm:text-3xl md:text-4xl">150+</p>
+        <p class="mt-2 text-xs font-medium uppercase tracking-wide sm:text-sm">Startups Launched</p>
       </div>
+    </div>
+  </section>
 
-      <!-- Feature 4: Middle Right -->
-      <div class="animate__animated animate__fadeInTopRight animate__delay-4s" id="feature-mid-right">
-        <div id="icon-container-4">
-          <img id="icon-4" src="https://img.icons8.com/color/96/globe--v1.png" alt="Startups Icon">
-        </div>
-        <p id="title-4">150+ Startups Launched</p>
-        <p id="subtitle-4">Globally</p>
-      </div>
-
-      <!-- Feature 5: Bottom Left -->
-      <div class="animate__animated animate__fadeInBottomLeft animate__delay-4s"  id="feature-bottom-left">
-        <div id="icon-container-5">
-          <img id="icon-5" src="./cosica.webp" alt="Cisco Icon">
-        </div>
-        <p id="title-5">Recognized by Cisco &</p>
-        <p id="subtitle-5">Global Tech Giants</p>
-      </div>
-
-      <!-- Feature 6: Bottom Right -->
-      <div class="animate__animated animate__fadeInBottomRight animate__delay-4s" id="feature-bottom-right">
-        <div id="icon-container-6">
-          <img id="icon-6" src="./it.webp" alt="Training Provider Icon">
-        </div>
-        <p id="title-6">Pakistan's Largest IT</p>
-        <p id="subtitle-6">Training Provider</p>
-      </div>
-
+  <!-- Why Choose SMIT -->
+  <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-10 lg:py-20">
+    <div class="mb-12 text-center animate__animated animate__fadeInUp animate__delay-4s">
+      <span class="inline-block rounded-full bg-brand-primary px-5 py-2 text-sm font-bold text-white">Why Choose SMIT?</span>
+      <h2 class="mt-5 text-2xl font-extrabold leading-snug text-[#1a1a1a] sm:text-3xl md:text-[2.2rem]">
+        <span class="mb-2 inline-block bg-[#d1e4ff] px-2.5 py-0.5">Empowering You with World-Class</span>
+        <br class="hidden sm:block">
+        <span class="inline-block bg-[#d1e4ff] px-2.5 py-0.5">IT Training &amp; Proven Success</span>
+      </h2>
     </div>
 
-  </div>
-   
-    <div id="contact">
-     <a href="https://www.saylanimit.com/"> <img class="contact-img" src="./contact.png" alt=""></a>
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-col items-center text-center animate__animated animate__fadeInTopLeft animate__delay-4s">
+        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]">
+          <img src="https://img.icons8.com/color/96/student-male.png" alt="Training Icon" class="h-12 w-12 object-contain">
+        </div>
+        <p class="text-sm font-bold text-[#222]">Hands-On Training &amp;</p>
+        <p class="mt-0.5 text-xs text-gray-500 sm:text-sm">Real-World Projects</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center animate__animated animate__fadeInTopRight animate__delay-4s">
+        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]">
+          <img src="./assets/images/home/employ.webp" alt="Employment Icon" class="h-12 w-12 object-contain">
+        </div>
+        <p class="text-sm font-bold text-[#222]">70% Employment &amp;</p>
+        <p class="mt-0.5 text-xs text-gray-500 sm:text-sm">Freelancing Success Rate</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center animate__animated animate__fadeInTopLeft animate__delay-4s">
+        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]">
+          <img src="https://img.icons8.com/color/96/graduation-cap.png" alt="Affordable Icon" class="h-12 w-12 object-contain">
+        </div>
+        <p class="text-sm font-bold text-[#222]">Affordable &amp; Accessible</p>
+        <p class="mt-0.5 text-xs text-gray-500 sm:text-sm">Education for All</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center animate__animated animate__fadeInTopRight animate__delay-4s">
+        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]">
+          <img src="https://img.icons8.com/color/96/globe--v1.png" alt="Startups Icon" class="h-12 w-12 object-contain">
+        </div>
+        <p class="text-sm font-bold text-[#222]">150+ Startups Launched</p>
+        <p class="mt-0.5 text-xs text-gray-500 sm:text-sm">Globally</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center animate__animated animate__fadeInBottomLeft animate__delay-4s">
+        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]">
+          <img src="./assets/images/home/cosica.webp" alt="Cisco Icon" class="h-12 w-12 object-contain">
+        </div>
+        <p class="text-sm font-bold text-[#222]">Recognized by Cisco &amp;</p>
+        <p class="mt-0.5 text-xs text-gray-500 sm:text-sm">Global Tech Giants</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center animate__animated animate__fadeInBottomRight animate__delay-4s">
+        <div class="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]">
+          <img src="./assets/images/home/it.webp" alt="Training Provider Icon" class="h-12 w-12 object-contain">
+        </div>
+        <p class="text-sm font-bold text-[#222]">Pakistan's Largest IT</p>
+        <p class="mt-0.5 text-xs text-gray-500 sm:text-sm">Training Provider</p>
+      </div>
     </div>
-      <div class="container">
+  </section>
 
+  <!-- Footer (dynamic, same as About) -->
+  <footer class="site-footer mt-8 w-full bg-gradient-to-br from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] font-montserrat text-gray-300">
+    <div class="relative mx-auto max-w-6xl overflow-hidden px-6 py-8 md:px-10">
+      <div class="mb-4 flex items-center justify-start">
+        <div class="relative w-[92px]">
+          <img src="./assets/images/logos/transparent_logo.png" alt="Saylani Mass IT Training" class="block h-auto w-full object-contain" width="80" height="40">
+        </div>
+        <div class="ml-4 mt-2 w-[152px]">
+          <a href="https://saylaniwelfare.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/images/logos/saylani_logo.webp" alt="Saylani Logo" class="block h-auto w-full object-contain" width="120" height="40">
+          </a>
+        </div>
+      </div>
 
-       
-     
-  </body>
-  </html>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-12 lg:grid-cols-12 lg:gap-12">
+        <div class="md:col-span-2 lg:col-span-4">
+          <p class="mb-6 text-left text-sm leading-relaxed text-gray-400 md:text-base">
+            Empowering Pakistan's youth with world-class IT education and training programs to build a brighter digital future.
+          </p>
+          <div class="mb-6 flex flex-col gap-3">
+            <div class="flex items-start gap-3 text-xs text-gray-400 sm:text-sm">
+              <i class="fa-solid fa-location-dot mt-0.5 w-[1.1em] shrink-0 text-center text-brand-primary" aria-hidden="true"></i>
+              <span>A-25, Bahadurabad Chowrangi, Karachi, Pakistan</span>
+            </div>
+            <div class="flex items-start gap-3 text-xs text-gray-400 sm:text-sm">
+              <i class="fa-solid fa-phone mt-0.5 w-[1.1em] shrink-0 text-center text-brand-green" aria-hidden="true"></i>
+              <a href="tel:+922134161365" class="text-gray-400 transition hover:text-white">+92 21 111 729 526</a>
+            </div>
+            <div class="flex items-start gap-3 text-xs text-gray-400 sm:text-sm">
+              <i class="fa-solid fa-envelope mt-0.5 w-[1.1em] shrink-0 text-center text-brand-primary" aria-hidden="true"></i>
+              <a href="mailto:saylanimass@gmail.com" class="text-gray-400 transition hover:text-white">saylanimass@gmail.com</a>
+            </div>
+          </div>
+          <div class="mb-6 flex flex-wrap justify-start gap-3">
+            <a href="https://www.facebook.com/saylani.smit" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full bg-[#2d2d2d] text-gray-300 transition hover:scale-110 hover:text-white">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://x.com/OfficialSwit" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="flex h-10 w-10 items-center justify-center rounded-full bg-[#2d2d2d] text-gray-300 transition hover:scale-110 hover:text-white">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/saylanimassit/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-full bg-[#2d2d2d] text-gray-300 transition hover:scale-110 hover:text-white">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/saylani.smit/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full bg-[#2d2d2d] text-gray-300 transition hover:scale-110 hover:text-white">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@SaylaniMassITTraining" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-10 w-10 items-center justify-center rounded-full bg-[#2d2d2d] text-gray-300 transition hover:scale-110 hover:text-white">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.saylanitech.smitlmsapp&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-primary to-[rgba(109,168,0,0.71)] px-4 py-2.5 text-white transition hover:scale-[1.03]">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="shrink-0">
+              <path fill="#ffc107" d="m23 12c0 .75-.42 1.41-1.03 1.75l-5.2 2.89-4.4-4.64 4.4-4.64 5.2 2.89c.61.34 1.03 1 1.03 1.75z"></path>
+              <path fill="#03a9f4" d="m12.37 12-10.8 11.39c-.36-.36-.57-.85-.57-1.39v-20c0-.54.21-1.03.57-1.39z"></path>
+              <path fill="#f44336" d="m12.37 12 4.4 4.64-12.8 7.11c-.29.16-.62.25-.97.25-.56 0-1.07-.23-1.43-.61z"></path>
+              <path fill="#4caf50" d="m12.37 12 4.4-4.64-12.8-7.11c-.36-.38-.87-.61-1.43-.61-.35 0-.68.09-.97.25z"></path>
+            </svg>
+            <span class="flex flex-col leading-tight">
+              <span class="text-[0.65rem] font-medium uppercase tracking-wide">GET IT ON</span>
+              <span class="text-base font-semibold">Google Play</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h3 class="relative mb-6 inline-block text-lg font-bold text-white after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-brand-primary after:to-[rgba(109,168,0,0.71)]">Quick Links</h3>
+          <ul class="flex flex-col gap-3">
+            <li><a href="./index.html" class="text-sm text-gray-400 transition hover:text-white">Home</a></li>
+            <li><a href="https://www.saylanimit.com/chat" class="text-sm text-gray-400 transition hover:text-white">Chat Us</a></li>
+            <li><a href="https://www.saylanimit.com/enroll" class="text-sm text-gray-400 transition hover:text-white">Enroll Now</a></li>
+            <li><a href="https://www.saylanimit.com/download-id-card" class="text-sm text-gray-400 transition hover:text-white">Download ID Card</a></li>
+            <li><a href="https://www.saylanimit.com/entry-test-status" class="text-sm text-gray-400 transition hover:text-white">Entry Test Status</a></li>
+            <li><a href="https://www.saylanimit.com/result" class="text-sm text-gray-400 transition hover:text-white">Check Results</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h3 class="relative mb-6 inline-block text-lg font-bold text-white after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-brand-primary after:to-[rgba(109,168,0,0.71)]">Our Courses</h3>
+          <ul class="flex flex-col gap-3">
+            <li><a href="https://www.saylanimit.com/courses/modern-web-application-development" class="text-sm text-gray-400 transition hover:text-white">Web Development</a></li>
+            <li><a href="https://www.saylanimit.com/courses/agentic-ai" class="text-sm text-gray-400 transition hover:text-white">Agentic AI</a></li>
+            <li><a href="https://www.saylanimit.com/courses/artificial-intelligence-and-data-science" class="text-sm text-gray-400 transition hover:text-white">AI &amp; Data Science</a></li>
+            <li><a href="https://www.saylanimit.com/courses/graphic-designing-with-ai" class="text-sm text-gray-400 transition hover:text-white">Graphic Design</a></li>
+            <li><a href="https://www.saylanimit.com/courses/3d-animation" class="text-sm text-gray-400 transition hover:text-white">3D Animation</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h3 class="relative mb-6 inline-block text-lg font-bold text-white after:absolute after:left-0 after:-bottom-2 after:h-1 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-brand-primary after:to-[rgba(109,168,0,0.71)]">Resources</h3>
+          <ul class="flex flex-col gap-3">
+            <li><a href="./courses.html" class="text-sm text-gray-400 transition hover:text-white">Courses</a></li>
+            <li><a href="./campuses.html" class="text-sm text-gray-400 transition hover:text-white">Campuses</a></li>
+            <li><a href="https://www.saylanimit.com/contact" class="text-sm text-gray-400 transition hover:text-white">Contact Us</a></li>
+            <li><a href="https://www.saylanimit.com/privacy-policy" class="text-sm text-gray-400 transition hover:text-white">Privacy Policy</a></li>
+            <li><a href="https://www.saylanimit.com/terms-of-service" class="text-sm text-gray-400 transition hover:text-white">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 bg-[rgba(26,26,26,0.5)]">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-8 text-sm text-gray-400 md:flex-row md:px-10">
+        <p class="order-2 m-0 text-center md:order-1 md:text-left">
+          © 2013 - 2026 <span class="font-semibold text-white">Saylani Mass IT Training</span>. All rights reserved.
+        </p>
+        <div class="order-1 mb-1 flex flex-wrap justify-center gap-6 md:order-2 md:mb-0">
+          <a href="https://www.saylanimit.com/privacy-policy" class="whitespace-nowrap text-gray-400 transition hover:text-white">Privacy Policy</a>
+          <a href="https://www.saylanimit.com/terms-of-service" class="whitespace-nowrap text-gray-400 transition hover:text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat FAB (dynamic replacement for contact.png) -->
+  <a href="https://www.saylanimit.com/chat" class="fixed bottom-6 left-6 z-50 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-brand-blue text-white shadow-lg transition hover:scale-105 hover:bg-brand-primary" aria-label="Chat with us">
+    <i class="fa-regular fa-comment-dots text-3xl" aria-hidden="true"></i>
+  </a>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('nav-menu');
+      var coursesNav = document.getElementById('courses-nav');
+      var coursesTrigger = document.getElementById('courses-trigger');
+      var coursesMega = document.getElementById('courses-mega');
+      var categoriesEl = document.getElementById('courses-categories');
+      var topCoursesEl = document.getElementById('courses-top');
+      var header = document.querySelector('header');
+      var mqDesktop = window.matchMedia('(min-width: 768px)');
+
+      var courseCategories = [
+        {
+          name: 'DEVELOPMENT',
+          courses: [
+            { title: 'Bootcamp (Artificial Intelligence)', url: './courses.html' },
+            { title: 'Bootcamp (Blockchain Development)', url: './courses.html' },
+            { title: 'Odoo Functional Consultant', url: './courses.html' },
+            { title: 'Devops Engineer', url: './courses.html' }
+          ]
+        },
+        {
+          name: 'DESIGNING',
+          courses: [
+            { title: 'Video Content Creation', url: './courses.html' },
+            { title: 'Video Animation', url: './courses.html' },
+            { title: 'UI UX Design With AI', url: './courses.html' },
+            { title: 'Autocad', url: './courses.html' }
+          ]
+        },
+        {
+          name: 'NETWORKING',
+          courses: [
+            { title: 'SOC Analyst CyberOps', url: './courses.html' },
+            { title: 'Networking Essentials', url: './courses.html' },
+            { title: 'Cybersecurity Essentials', url: './courses.html' },
+            { title: 'CyberOps Associate', url: './courses.html' }
+          ]
+        },
+        {
+          name: 'ENTREPRENEURSHIP',
+          courses: [
+            { title: 'Professional Communication', url: './courses.html' },
+            { title: 'English Language & Communication', url: './courses.html' },
+            { title: 'AI & Game Creators', url: './courses.html' },
+            { title: 'Little Geniuses: Coding for Kids', url: './courses.html' }
+          ]
+        },
+        {
+          name: 'VOCATIONAL TRAINING',
+          courses: [
+            { title: 'Health, Safety and Environment', url: './courses.html' },
+            { title: 'Fire Alarm System Installation', url: './courses.html' },
+            { title: 'Domestic Electrician', url: './courses.html' },
+            { title: 'Plumber Technician', url: './courses.html' }
+          ]
+        }
+      ];
+
+      var topCourses = [
+        { title: 'Bootcamp (Blockchain Development)', duration: '4 months', url: './courses.html' },
+        { title: 'Odoo Functional Consultant', duration: '10 months', url: './courses.html' },
+        { title: 'Video Content Creation', duration: '4 months', url: './courses.html' },
+        { title: 'Professional Communication', duration: '3 months', url: './courses.html' }
+      ];
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function renderCoursesMenu() {
+        if (!categoriesEl || !topCoursesEl) return;
+
+        categoriesEl.innerHTML = courseCategories.map(function (category) {
+          var links = category.courses.map(function (course) {
+            return (
+              '<a href="' + escapeHtml(course.url) + '" class="courses-mega__link group/link flex min-h-[36px] items-center gap-2.5 py-1.5 text-[14px] text-slate-700 transition hover:text-brand-primary" title="' + escapeHtml(course.title) + '">' +
+                '<i class="fa-solid fa-graduation-cap w-4 shrink-0 text-[13px] text-slate-400 group-hover/link:text-brand-primary" aria-hidden="true"></i>' +
+                '<span class="courses-mega__link-text min-w-0 flex-1">' + escapeHtml(course.title) + '</span>' +
+              '</a>'
+            );
+          }).join('');
+
+          return (
+            '<div class="min-w-0">' +
+              '<div class="mb-3 flex items-center gap-2">' +
+                '<i class="fa-solid fa-graduation-cap shrink-0 text-[12px] text-slate-400" aria-hidden="true"></i>' +
+                '<h4 class="courses-mega__title text-[11px] font-semibold uppercase tracking-wide text-slate-500" title="' + escapeHtml(category.name) + '">' + escapeHtml(category.name) + '</h4>' +
+              '</div>' +
+              '<div class="flex flex-col gap-1.5">' + links + '</div>' +
+            '</div>'
+          );
+        }).join('');
+
+        topCoursesEl.innerHTML = topCourses.map(function (course) {
+          return (
+            '<a href="' + escapeHtml(course.url) + '" class="flex h-[66px] items-center gap-3 rounded-[8px] border border-[#e1e5ea] bg-white px-3 transition hover:border-slate-300 hover:shadow-sm" title="' + escapeHtml(course.title) + '">' +
+              '<span class="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-brand-mega text-white">' +
+                '<i class="fa-solid fa-graduation-cap text-sm" aria-hidden="true"></i>' +
+              '</span>' +
+              '<span class="min-w-0 flex-1">' +
+                '<span class="courses-mega__card-title block text-[14px] font-medium text-slate-800">' + escapeHtml(course.title) + '</span>' +
+                '<span class="mt-0.5 block text-[12px] text-slate-500">' + escapeHtml(course.duration) + '</span>' +
+              '</span>' +
+            '</a>'
+          );
+        }).join('');
+      }
+
+      function isDesktop() {
+        return mqDesktop.matches;
+      }
+
+      function positionMegaMenu() {
+        if (!header || !coursesMega || !isDesktop()) return;
+        var rect = header.getBoundingClientRect();
+        document.documentElement.style.setProperty('--courses-mega-top', Math.round(rect.bottom) + 'px');
+        document.documentElement.style.setProperty('--courses-mega-gap', Math.round(rect.height) + 'px');
+      }
+
+      function setCoursesOpen(open) {
+        if (!coursesNav || !coursesTrigger || !coursesMega) return;
+        coursesNav.classList.toggle('is-open', open);
+        coursesTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) positionMegaMenu();
+      }
+
+      function closeCourses() {
+        setCoursesOpen(false);
+      }
+
+      var closeTimer = null;
+      function scheduleClose() {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(closeCourses, 180);
+      }
+      function cancelClose() {
+        clearTimeout(closeTimer);
+        setCoursesOpen(true);
+      }
+
+      renderCoursesMenu();
+      positionMegaMenu();
+      window.addEventListener('resize', positionMegaMenu);
+      window.addEventListener('scroll', positionMegaMenu, { passive: true });
+
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          var open = menu.classList.toggle('is-open');
+          menu.classList.toggle('hidden', !open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          var icon = toggle.querySelector('i');
+          if (icon) {
+            icon.className = open ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-bars text-xl';
+          }
+          if (!open) closeCourses();
+        });
+      }
+
+      if (coursesTrigger && coursesNav) {
+        coursesTrigger.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          setCoursesOpen(!coursesNav.classList.contains('is-open'));
+        });
+
+        coursesTrigger.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setCoursesOpen(!coursesNav.classList.contains('is-open'));
+          } else if (event.key === 'Escape') {
+            closeCourses();
+            coursesTrigger.focus();
+          } else if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            setCoursesOpen(true);
+            var firstLink = coursesMega && coursesMega.querySelector('a');
+            if (firstLink) firstLink.focus();
+          }
+        });
+
+        coursesNav.addEventListener('mouseenter', function () {
+          if (isDesktop()) cancelClose();
+        });
+
+        coursesNav.addEventListener('mouseleave', function () {
+          if (isDesktop()) scheduleClose();
+        });
+
+        coursesNav.addEventListener('focusout', function () {
+          setTimeout(function () {
+            if (!coursesNav.contains(document.activeElement)) closeCourses();
+          }, 0);
+        });
+      }
+
+      if (coursesMega) {
+        coursesMega.addEventListener('mouseenter', function () {
+          if (isDesktop()) cancelClose();
+        });
+        coursesMega.addEventListener('mouseleave', function () {
+          if (isDesktop()) scheduleClose();
+        });
+        coursesMega.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closeCourses();
+            if (coursesTrigger) coursesTrigger.focus();
+          }
+        });
+      }
+
+      document.addEventListener('click', function (event) {
+        if (!coursesNav) return;
+        if (!coursesNav.contains(event.target)) closeCourses();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeCourses();
+      });
+
+      if (typeof mqDesktop.addEventListener === 'function') {
+        mqDesktop.addEventListener('change', function () {
+          closeCourses();
+          positionMegaMenu();
+        });
+      } else if (typeof mqDesktop.addListener === 'function') {
+        mqDesktop.addListener(function () {
+          closeCourses();
+          positionMegaMenu();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

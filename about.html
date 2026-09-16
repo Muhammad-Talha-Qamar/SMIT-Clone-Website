@@ -13,12 +13,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <div class="Main">
-    <img id="item1" class="animate__animated animate__fadeInLeft" src="./transparent_logo.png" alt="SMIT Logo">
+    <img id="item1" class="animate__animated animate__fadeInLeft" src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo">
     
     <div id="min" class="animate__animated animate__fadeInDown">
         <div><a id="item2" href="./index.html">Home</a></div>
@@ -31,12 +34,12 @@
 </div>
     </div>
     <div id="contact">
-        <a href="https://www.saylanimit.com/"> <img class="contact-img" src="./contact.png" alt=""></a>
+        <a href="https://www.saylanimit.com/"> <img class="contact-img" src="./assets/images/shared/contact.png" alt=""></a>
     </div>
-    <img id="tag2" class=" animate__animated animate__bounceInDownanimate__animated animate__bounceInDown" src="./tag2.png" height="250px"  alt="">
+    <img id="tag2" class=" animate__animated animate__bounceInDownanimate__animated animate__bounceInDown" src="./assets/images/about/tag2.png" height="250px"  alt="">
 
     <div id="center" >
-    <img id="pic1" class="animate__animated animate__bounceInUp animate__delay-1s" src="./student_hackethon.webp" alt="">
+    <img id="pic1" class="animate__animated animate__bounceInUp animate__delay-1s" src="./assets/images/about/student_hackethon.webp" alt="">
     
     <div id="inter">
 
@@ -51,10 +54,122 @@
     </div>
     </div>
     <div>
-
-            <img class="tag3" src="./tag3.png" alt="">
+            <img class="tag3" src="./assets/images/about/tag3.png" alt="">
     </div>
-         <img src="./end.png" id="end" alt="">
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <div class="site-footer__logos">
+                <div class="site-footer__logo-smit">
+                    <img src="./assets/images/logos/transparent_logo.png" alt="Saylani Mass IT Training" width="80" height="40">
+                </div>
+                <div class="site-footer__logo-saylani">
+                    <a href="https://saylaniwelfare.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/images/logos/saylani_logo.webp" alt="Saylani Logo" width="120" height="40">
+                    </a>
+                </div>
+            </div>
+
+            <div class="site-footer__grid">
+                <div class="site-footer__brand">
+                    <p class="site-footer__mission">
+                        Empowering Pakistan's youth with world-class IT education and training programs to build a brighter digital future.
+                    </p>
+                    <div class="site-footer__contact">
+                        <div class="site-footer__contact-row">
+                            <i class="fa-solid fa-location-dot site-footer__icon site-footer__icon--blue" aria-hidden="true"></i>
+                            <span>A-25, Bahadurabad Chowrangi, Karachi, Pakistan</span>
+                        </div>
+                        <div class="site-footer__contact-row">
+                            <i class="fa-solid fa-phone site-footer__icon site-footer__icon--green" aria-hidden="true"></i>
+                            <a href="tel:+922134161365">+92 21 111 729 526</a>
+                        </div>
+                        <div class="site-footer__contact-row">
+                            <i class="fa-solid fa-envelope site-footer__icon site-footer__icon--blue" aria-hidden="true"></i>
+                            <a href="mailto:saylanimass@gmail.com">saylanimass@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="site-footer__social">
+                        <a href="https://www.facebook.com/saylani.smit" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://x.com/OfficialSwit" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/saylanimassit/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saylani.smit/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@SaylaniMassITTraining" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <a class="site-footer__play"
+                        href="https://play.google.com/store/apps/details?id=com.saylanitech.smitlmsapp&hl=en"
+                        target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#ffc107" d="m23 12c0 .75-.42 1.41-1.03 1.75l-5.2 2.89-4.4-4.64 4.4-4.64 5.2 2.89c.61.34 1.03 1 1.03 1.75z"></path>
+                            <path fill="#03a9f4" d="m12.37 12-10.8 11.39c-.36-.36-.57-.85-.57-1.39v-20c0-.54.21-1.03.57-1.39z"></path>
+                            <path fill="#f44336" d="m12.37 12 4.4 4.64-12.8 7.11c-.29.16-.62.25-.97.25-.56 0-1.07-.23-1.43-.61z"></path>
+                            <path fill="#4caf50" d="m12.37 12 4.4-4.64-12.8-7.11c-.36-.38-.87-.61-1.43-.61-.35 0-.68.09-.97.25z"></path>
+                        </svg>
+                        <span class="site-footer__play-text">
+                            <span class="site-footer__play-label">GET IT ON</span>
+                            <span class="site-footer__play-store">Google Play</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="site-footer__col site-footer__col--quick">
+                    <h3 class="site-footer__heading">Quick Links</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="https://www.saylanimit.com/chat">Chat Us</a></li>
+                        <li><a href="https://www.saylanimit.com/enroll">Enroll Now</a></li>
+                        <li><a href="https://www.saylanimit.com/download-id-card">Download ID Card</a></li>
+                        <li><a href="https://www.saylanimit.com/entry-test-status">Entry Test Status</a></li>
+                        <li><a href="https://www.saylanimit.com/result">Check Results</a></li>
+                    </ul>
+                </div>
+
+                <div class="site-footer__col site-footer__col--courses">
+                    <h3 class="site-footer__heading">Our Courses</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="https://www.saylanimit.com/courses/modern-web-application-development">Web Development</a></li>
+                        <li><a href="https://www.saylanimit.com/courses/agentic-ai">Agentic AI</a></li>
+                        <li><a href="https://www.saylanimit.com/courses/artificial-intelligence-and-data-science">AI &amp; Data Science</a></li>
+                        <li><a href="https://www.saylanimit.com/courses/graphic-designing-with-ai">Graphic Design</a></li>
+                        <li><a href="https://www.saylanimit.com/courses/3d-animation">3D Animation</a></li>
+                    </ul>
+                </div>
+
+                <div class="site-footer__col site-footer__col--resources">
+                    <h3 class="site-footer__heading">Resources</h3>
+                    <ul class="site-footer__links">
+                        <li><a href="./courses.html">Courses</a></li>
+                        <li><a href="./campuses.html">Campuses</a></li>
+                        <li><a href="https://www.saylanimit.com/contact">Contact Us</a></li>
+                        <li><a href="https://www.saylanimit.com/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://www.saylanimit.com/terms-of-service">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer__bottom">
+            <div class="site-footer__bottom-inner">
+                <p class="site-footer__copy">
+                    © 2013 - 2026 <span>Saylani Mass IT Training</span>. All rights reserved.
+                </p>
+                <div class="site-footer__legal">
+                    <a href="https://www.saylanimit.com/privacy-policy">Privacy Policy</a>
+                    <a href="https://www.saylanimit.com/terms-of-service">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
