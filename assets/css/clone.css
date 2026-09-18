@@ -1,0 +1,88 @@
+/* Match saylanimit.com extras that Tailwind doesn't cover */
+
+body {
+  background: #f7f9fc;
+}
+
+.page-hero {
+  margin-top: 64px;
+  background: linear-gradient(90deg, #1c7ed6 0%, #3aa07a 52%, #6db51a 100%);
+}
+
+.why-orbit {
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 520px) 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 28px 24px;
+  align-items: center;
+  justify-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.why-orbit__center {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+}
+
+.why-orbit__item:nth-child(1) { grid-column: 1; grid-row: 1; justify-self: end; }
+.why-orbit__item:nth-child(2) { grid-column: 3; grid-row: 1; justify-self: start; }
+.why-orbit__item:nth-child(3) { grid-column: 1; grid-row: 2; justify-self: end; }
+.why-orbit__item:nth-child(4) { grid-column: 3; grid-row: 2; justify-self: start; }
+.why-orbit__item:nth-child(5) { grid-column: 1; grid-row: 3; justify-self: end; transform: translateX(18%); }
+.why-orbit__item:nth-child(6) { grid-column: 3; grid-row: 3; justify-self: start; transform: translateX(-18%); }
+
+.course-scroller,
+.review-scroller {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 8px 4px 16px;
+}
+
+.course-scroller::-webkit-scrollbar,
+.review-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.course-card,
+.review-card {
+  scroll-snap-align: start;
+}
+
+.city-chip {
+  border: 1px solid #dbe4ee;
+  background: #fff;
+  color: #334155;
+}
+
+.city-chip.is-active {
+  background: #0b73b7;
+  border-color: #0b73b7;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .why-orbit {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 28px 12px;
+  }
+
+  .why-orbit__center {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    order: -1;
+  }
+
+  .why-orbit__item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    justify-self: center !important;
+    transform: none !important;
+  }
+}
