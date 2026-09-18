@@ -1,144 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Saylani Mass IT Training</title>
+
+  <!-- External Libraries & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#007bff',
+              primary: '#0b73b7',
+              sky: '#1370b8',
+              green: '#6da800',
+              mega: '#087fc3',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Stylesheet Component Scaffolding -->
+  <style>
+    /* Mega Menu Controls */
+    .courses-mega {
+      display: none;
+    }
+    .courses-nav.is-open > .courses-mega {
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .courses-mega {
+        position: fixed;
+        left: 50%;
+        top: var(--courses-mega-top, 64px);
+        z-index: 60;
+        width: min(calc(100vw - 30px), 72rem);
+        transform: translateX(-50%);
+        border: 1px solid #e5e7eb;
+        border-radius: 0 0 10px 10px;
+        background: #fff;
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      }
+      .courses-mega-bridge {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: var(--courses-mega-gap, 64px);
+      }
+      .courses-mega__panel {
+        overflow: hidden;
+        border-radius: 0 0 10px 10px;
+      }
+    }
+    @media (max-width: 767px) {
+      .courses-mega {
+        position: static;
+        width: 100%;
+        max-height: min(70vh, 520px);
+        overflow-y: auto;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-top: 0.35rem;
+        background: #fff;
+      }
+      .courses-mega-bridge {
+        display: none;
+      }
+    }
+    .courses-mega__title,
+    .courses-mega__link-text,
+    .courses-mega__card-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Base Hero Banner styling */
+    .smit-hero-banner {
+      position: relative;
+      width: 100%;
+      margin-top: 64px;
+      background-color: #0b73b7;
+      background-image: linear-gradient(135deg, #0b73b7 0%, #0d5ea6 100%);
+      color: #ffffff;
+      padding: 48px 24px;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+
+    .glow-top-right {
+      position: absolute;
+      top: -32px;
+      right: -32px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(59, 130, 246, 0.4);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(50%, -50%);
+      pointer-events: none;
+    }
+
+    .glow-bottom-left {
+      position: absolute;
+      bottom: -32px;
+      left: 16px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(56, 189, 248, 0.3);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+    }
+
+    .smit-hero-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1152px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .smit-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .smit-pill-badge:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .pill-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .smit-hero-heading {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .smit-hero-subheading {
+      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      max-width: 680px;
+    }
+
+    /* Campuses Section & Grid */
+    .campuses-section {
+      width: 100%;
+      background-color: #f8fafc;
+      padding: 40px 20px 80px 20px;
+      font-family: "Montserrat", system-ui, sans-serif;
+    }
+
+    .campuses-container {
+      max-width: 1152px;
+      margin: 0 auto;
+    }
+
+    .map-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .map-image {
+      max-width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+    }
+
+    .city-select-wrapper {
+      margin-bottom: 24px;
+    }
+
+    .city-select-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .city-select-input {
+      width: 100%;
+      max-width: 320px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      color: #1e293b;
+      outline: none;
+    }
+
+    .campus-stats-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #e0f2fe;
+      color: #0284c7;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 9999px;
+    }
+
+    .campus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .campus-card {
+      position: relative;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .campus-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .campus-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .campus-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #0b73b7;
+      font-size: 1.2rem;
+    }
+
+    .campus-city {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+
+    .campus-count {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #0b73b7;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .campus-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Media Queries for Campus Grid */
+    @media (max-width: 1024px) {
+      .campus-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .smit-hero-banner {
+        padding: 32px 16px;
+      }
+      .campus-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .campus-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body>
-   <div class="Main">
-    <img id="item1" class="animate__animated animate__fadeInLeft" src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo">
-    
-    <div id="min" class="animate__animated animate__fadeInDown">
-        <div><a id="item2" href="./index.html">Home</a></div>
-        <div><a id="item3" href="./about.html">About</a></div>
-        <div><a id="item4" href="https://www.saylanimit.com/">Courses</a></div>
-        <div><a id="item5" href="./campuses.html">Campuses</a></div>
-        <div><a id="item6" href="https://www.saylanimit.com/result">Check Result</a></div>
-        <div id="m"><a id="item7" href="https://www.saylanimit.com/enroll">Enroll Now</a></div>
-    </div>
-</div>
-    <div id="contact">
-        <a href="https://www.saylanimit.com/"> <img class="contact-img" src="./assets/images/shared/contact.png" alt=""></a>
-    </div>
-    <img id="tag4" class="animate__animated animate__bounceInDown" src="./assets/images/campuses/campuses.png" alt="">
-    <img src="./assets/images/campuses/pak.png" id="tag5" class="animate__animated animate__bounceInUp animate__delay-1s" alt="">
-    <h3 style="display: inline;" id="the-one">Select a City to View Campuses</h3>
-   <br>
-    <form id="form" action="">
-        <p style="display: inline";>
-            <input type="" name="" id="input1" placeholder="Talha" size="200">
-        </p>
-    </form>
-    <div id="the-main">
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Karachi
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;24</h1>
-            <h4 style=" color: rgb(185, 183, 183);">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Faisalabad
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h1>
-            <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Hyderabad
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;3 </h1>
-            <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Peshawar
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Quetta </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Islamabad
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Rawalpindi
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;3 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Gujranwala
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;2 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Sukkur </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Lakki Marwat
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Multan </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Ghotki </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Turbat </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Abbottabad
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;1 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campus</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Lahore </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;3 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Waziristan
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;2 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-        <div id="boxes" style="font-size: 15px;">
-            <h3>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-location-dot" style="color: rgb(0, 123, 225);"></i> Balochistan
-            </h3>
-            <h1 style="color: rgb(0, 123, 225) ;">&nbsp;&nbsp;&nbsp;3 </h3>
-                <h4 style=" color: grey;">&nbsp;&nbsp;&nbsp;Campuses</h4>
-        </div>
-    </div>
-</body>
+<body class="font-montserrat text-slate-800 bg-white">
 
+  <!-- Main Fixed Header Navigation -->
+  <header class="fixed top-0 left-0 z-50 w-full bg-white shadow-[2px_13px_7px_-1px_rgba(0,0,0,0.15)]">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
+      <a href="./index.html" class="shrink-0 animate__animated animate__fadeInLeft">
+        <img src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo" class="h-10 w-auto">
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 md:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+      </button>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <div id="nav-menu" class="absolute left-0 top-full hidden w-full flex-col gap-1 border-t border-gray-100 bg-white px-4 py-4 shadow-lg animate__animated animate__fadeInDown md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 md:shadow-none lg:gap-8 [&.is-open]:flex">
+        <a href="./index.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Home</a>
+        <a href="./about.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">About</a>
+        
+        <!-- Courses Mega Menu Dropdown Container -->
+        <div class="courses-nav relative w-full md:w-auto" id="courses-nav">
+          <button
+            type="button"
+            id="courses-trigger"
+            class="flex w-full items-center justify-between rounded px-2 py-2 text-left text-sm font-medium text-black hover:text-brand-primary md:inline-flex md:w-auto md:justify-start md:py-0"
+            aria-expanded="false"
+            aria-controls="courses-mega"
+            aria-haspopup="true">
+            <span>Courses</span>
+            <i class="fa-solid fa-chevron-down ml-2 text-[10px] text-slate-500" aria-hidden="true"></i>
+          </button>
+          
+          <div id="courses-mega" class="courses-mega" role="region" aria-label="Courses menu">
+            <div class="courses-mega-bridge" aria-hidden="true"></div>
+            <div class="courses-mega__panel">
+              <div class="courses-mega__categories grid grid-cols-1 gap-6 px-5 py-6 sm:grid-cols-2 md:grid-cols-3 min-[1200px]:grid-cols-5 min-[1200px]:gap-5 min-[1200px]:px-8 min-[1200px]:py-7" id="courses-categories"></div>
+              <div class="courses-mega__top border-t border-[#e5e7eb] bg-[#f8f9fa] px-5 py-5 min-[1200px]:px-8">
+                <h3 class="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-700">
+                  <i class="fa-solid fa-graduation-cap text-slate-500" aria-hidden="true"></i>
+                  Top Courses
+                </h3>
+                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 min-[1200px]:grid-cols-4" id="courses-top"></div>
+              </div>
+              <div class="flex min-h-[52px] items-center justify-center border-t border-[#e5e7eb] bg-white px-4">
+                <a href="https://www.saylanimit.com/" class="inline-flex items-center gap-2 text-sm font-medium text-brand-mega transition hover:text-brand-primary">
+                  See All Courses
+                  <i class="fa-solid fa-arrow-up-right text-xs" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="./campuses.html" class="block rounded px-2 py-2 text-sm font-medium text-brand-primary font-semibold md:py-0">Campuses</a>
+        <a href="https://www.saylanimit.com/result" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Check Result</a>
+        <a href="https://www.saylanimit.com/enroll" class="mt-1 inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-primary md:mt-0">Enroll Now</a>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Hero Banner -->
+  <section class="smit-hero-banner">
+    <div class="glow-top-right" aria-hidden="true"></div>
+    <div class="glow-bottom-left" aria-hidden="true"></div>
+
+    <div class="smit-hero-container">
+      <a href="./campuses.html" class="smit-pill-badge">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span class="pill-text">Campuses</span>
+      </a>
+
+      <h1 class="smit-hero-heading">Our Campuses</h1>
+
+      <p class="smit-hero-subheading">
+        Find SMIT training centers across Pakistan - bringing quality IT education closer to you
+      </p>
+    </div>
+  </section>
+
+  <!-- Campuses Content Main Area -->
+  <main class="campuses-section">
+    <div class="campuses-container">
+      
+      <!-- Interactive Pakistan Map Illustration -->
+      <div class="map-wrapper">
+        <img src="./assets/images/campuses/pak.png" alt="Pakistan Campuses Map" class="map-image">
+      </div>
+
+      <!-- City Selection Dropdown -->
+      <div class="city-select-wrapper">
+        <label for="city-select" class="city-select-label">Select a City to View Campuses</label>
+        <select id="city-select" class="city-select-input">
+          <option value="">Choose a city...</option>
+          <option value="karachi">Karachi</option>
+          <option value="faisalabad">Faisalabad</option>
+          <option value="hyderabad">Hyderabad</option>
+          <option value="peshawar">Peshawar</option>
+          <option value="quetta">Quetta</option>
+          <option value="islamabad">Islamabad</option>
+          <option value="rawalpindi">Rawalpindi</option>
+          <option value="gujranwala">Gujranwala</option>
+          <option value="sukkur">Sukkur</option>
+          <option value="multan">Multan</option>
+          <option value="lahore">Lahore</option>
+        </select>
+      </div>
+
+      <!-- Key Campus Statistics Badges -->
+      <div class="campus-stats-bar">
+        <div class="stat-pill"><i class="fa-solid fa-location-dot"></i> 17 Cities</div>
+        <div class="stat-pill"><i class="fa-solid fa-building"></i> 55 Campuses</div>
+      </div>
+
+      <!-- Responsive Grid Container for Campus Cards -->
+      <div class="campus-grid">
+        
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Karachi</h3>
+            <p class="campus-count">28</p>
+            <span class="campus-label">Campuses</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Faisalabad</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Hyderabad</h3>
+            <p class="campus-count">3</p>
+            <span class="campus-label">Campuses</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Peshawar</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Quetta</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Islamabad</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Rawalpindi</h3>
+            <p class="campus-count">4</p>
+            <span class="campus-label">Campuses</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Gujranwala</h3>
+            <p class="campus-count">2</p>
+            <span class="campus-label">Campuses</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Sukkur</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Lakki Marwat</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Multan</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Ghotki</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Turbat</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Abbottabad</h3>
+            <p class="campus-count">1</p>
+            <span class="campus-label">Campus</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Lahore</h3>
+            <p class="campus-count">3</p>
+            <span class="campus-label">Campuses</span>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <div class="campus-card-content">
+            <i class="fa-solid fa-location-dot campus-icon"></i>
+            <h3 class="campus-city">Waziristan</h3>
+            <p class="campus-count">2</p>
+            <span class="campus-label">Campuses</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive JavaScript Toggle Logic -->
+  <script>
+    // Toggle Mobile Navigation Menu
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // Toggle Courses Mega Menu Container
+    const coursesNav = document.getElementById('courses-nav');
+    const coursesTrigger = document.getElementById('courses-trigger');
+
+    if (coursesNav && coursesTrigger) {
+      coursesTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = coursesNav.classList.toggle('is-open');
+        coursesTrigger.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!coursesNav.contains(e.target)) {
+          coursesNav.classList.remove('is-open');
+          coursesTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
 </html>

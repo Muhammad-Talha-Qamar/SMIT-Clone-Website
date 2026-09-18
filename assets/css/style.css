@@ -650,3 +650,151 @@ body {
     transform: none;
   }
 }
+/* Campuses Container Setup */
+.campuses-section {
+  width: 100%;
+  background-color: #f8fafc;
+  padding: 40px 20px 80px 20px;
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+.campuses-container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+/* Map Centering Wrapper */
+.map-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.map-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* Select City Dropdown */
+.city-select-wrapper {
+  margin-bottom: 24px;
+}
+
+.city-select-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.city-select-input {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  color: #1e293b;
+  outline: none;
+}
+
+/* Stats Pills Bar */
+.campus-stats-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e0f2fe;
+  color: #0284c7;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 9999px;
+}
+
+/* 4-Column Responsive Grid */
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Individual Card Design */
+.campus-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campus-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+.campus-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.campus-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #0b73b7;
+  font-size: 1.2rem;
+}
+
+.campus-city {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+}
+
+.campus-count {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0b73b7;
+  margin: 0;
+  line-height: 1;
+}
+
+.campus-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Breakpoints for Smaller Screen Resolutions */
+@media (max-width: 1024px) {
+  .campus-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .campus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .campus-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Saylani Mass IT Training</title>
+
+  <!-- External Libraries & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#007bff',
+              primary: '#0b73b7',
+              sky: '#1370b8',
+              green: '#6da800',
+              mega: '#087fc3',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Styles -->
+  <style>
+    /* Hero Banner styling */
+    .smit-hero-banner {
+      position: relative;
+      width: 100%;
+      margin-top: 64px;
+      background-color: #0b73b7;
+      background-image: linear-gradient(135deg, #0b73b7 0%, #0d5ea6 100%);
+      color: #ffffff;
+      padding: 48px 24px;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+
+    .glow-top-right {
+      position: absolute;
+      top: -32px;
+      right: -32px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(59, 130, 246, 0.4);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(50%, -50%);
+      pointer-events: none;
+    }
+
+    .glow-bottom-left {
+      position: absolute;
+      bottom: -32px;
+      left: 16px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(56, 189, 248, 0.3);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+    }
+
+    .smit-hero-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1152px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .smit-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    /* Tab Switcher Styling */
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #475569;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background-color: #0b73b7;
+      color: #ffffff;
+      border-color: #0b73b7;
+      box-shadow: 0 4px 12px rgba(11, 115, 183, 0.25);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background-color: #f1f5f9;
+      color: #0b73b7;
+    }
+
+    /* Input & Select Box Customizations */
+    .portal-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      background-color: #ffffff;
+    }
+
+    .portal-input:focus {
+      border-color: #0b73b7;
+      box-shadow: 0 0 0 3px rgba(11, 115, 183, 0.1);
+    }
+  </style>
+</head>
+
+<body class="font-montserrat text-slate-800 bg-[#f8fafc]">
+
+  <!-- Top Navbar -->
+  <header class="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
+      <a href="./index.html" class="shrink-0">
+        <img src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo" class="h-10 w-auto">
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 lg:gap-8">
+        <a href="./index.html" class="text-sm font-medium text-black hover:text-brand-primary">Home</a>
+        <a href="./about.html" class="text-sm font-medium text-black hover:text-brand-primary">About</a>
+        <a href="./courses.html" class="text-sm font-medium text-black hover:text-brand-primary">Courses</a>
+        <a href="./campuses.html" class="text-sm font-medium text-black hover:text-brand-primary">Campuses</a>
+        <a href="./portal.html?tab=result" class="text-sm font-medium text-black hover:text-brand-primary">Check Result</a>
+        <a href="./portal.html?tab=registration" class="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-primary">Enroll Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Dynamic Hero Banner -->
+  <section class="smit-hero-banner">
+    <div class="glow-top-right" aria-hidden="true"></div>
+    <div class="glow-bottom-left" aria-hidden="true"></div>
+
+    <div class="smit-hero-container">
+      <a href="#" id="hero-badge" class="smit-pill-badge">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        <span id="hero-badge-text">Registration Form</span>
+      </a>
+
+      <h1 id="hero-title" class="text-3xl md:text-5xl font-extrabold text-white mb-3">Registration Form</h1>
+      <p id="hero-subtitle" class="text-sm md:text-base text-white/90 max-w-2xl">
+        Start your journey towards excellence. Fill out the form to apply for our courses
+      </p>
+    </div>
+  </section>
+
+  <!-- Navigation Tab Bar -->
+  <section class="max-w-6xl mx-auto px-4 mt-8">
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-6">
+      <button class="tab-btn active" onclick="switchTab('registration')">
+        <i class="fa-regular fa-id-card"></i>
+        <span>Registration Form</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('idcard')">
+        <i class="fa-solid fa-address-card"></i>
+        <span>Download ID Card</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('entrytest')">
+        <i class="fa-solid fa-file-pen"></i>
+        <span>Entry Test Status</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('result')">
+        <i class="fa-solid fa-square-poll-vertical"></i>
+        <span>Result</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Dynamic Content Sections -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+
+    <!-- 1. REGISTRATION FORM TAB -->
+    <div id="tab-registration" class="tab-content">
+      <form class="space-y-8 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm">
+        
+        <!-- Location & Course Details -->
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-brand-primary"></i> Location & Course Details
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Select Country*</label>
+              <select class="portal-input"><option>Select country</option><option>Pakistan</option></select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Select class preference*</label>
+              <select class="portal-input"><option>Select class preference</option><option>Onsite</option><option>Online</option></select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Select Gender*</label>
+              <select class="portal-input"><option>Select gender</option><option>Male</option><option>Female</option></select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Select City*</label>
+              <select class="portal-input"><option>Select city</option><option>Karachi</option><option>Lahore</option></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Information -->
+        <div>
+          <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-user text-brand-primary"></i> Personal Information
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Full Name *</label>
+              <input type="text" placeholder="Enter your full name" class="portal-input">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Father Name *</label>
+              <input type="text" placeholder="Enter father's name" class="portal-input">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Email *</label>
+              <input type="email" placeholder="your.email@example.com" class="portal-input">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Phone *</label>
+              <input type="tel" placeholder="Enter phone number" class="portal-input">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">CNIC / B-Form *</label>
+              <input type="text" placeholder="4201012345671" class="portal-input">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Father's CNIC *</label>
+              <input type="text" placeholder="4201012345671" class="portal-input">
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center pt-4">
+          <button type="submit" class="w-full sm:w-auto px-10 py-3 bg-brand-primary text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition">
+            Submit Registration
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- 2. DOWNLOAD ID CARD TAB -->
+    <div id="tab-idcard" class="tab-content hidden">
+      <div class="bg-white p-8 sm:p-12 rounded-2xl border border-slate-200 text-center max-w-xl mx-auto shadow-sm">
+        <h2 class="text-2xl font-extrabold text-slate-800 mb-2">Download ID Card</h2>
+        <p class="text-xs text-slate-500 mb-6">Enter the CNIC you provided during form submission.<br>⚠️ Don't use dashes (-) in CNIC number.</p>
+        
+        <div class="text-left mb-6">
+          <label class="block text-xs font-bold text-slate-700 mb-2">CNIC Number*</label>
+          <input type="text" placeholder="4220109966883" class="portal-input text-center text-lg tracking-wider">
+        </div>
+
+        <button type="button" class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i> Search
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. ENTRY TEST STATUS TAB -->
+    <div id="tab-entrytest" class="tab-content hidden">
+      <div class="bg-white p-8 sm:p-12 rounded-2xl border border-slate-200 text-center max-w-xl mx-auto shadow-sm">
+        <h2 class="text-2xl font-extrabold text-slate-800 mb-2">Check Your Entry Test Status</h2>
+        <p class="text-xs text-slate-500 mb-6">Enter your roll number to view your entry test / induction status</p>
+        
+        <div class="text-left mb-6">
+          <label class="block text-xs font-bold text-slate-700 mb-2">Roll Number*</label>
+          <input type="text" placeholder="ENTER YOUR ROLL NUMBER" class="portal-input text-center text-lg uppercase">
+        </div>
+
+        <button type="button" class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i> Check Status
+        </button>
+      </div>
+    </div>
+
+    <!-- 4. CHECK RESULT TAB -->
+    <div id="tab-result" class="tab-content hidden">
+      <div class="bg-white p-8 sm:p-12 rounded-2xl border border-slate-200 text-center max-w-xl mx-auto shadow-sm">
+        <h2 class="text-2xl font-extrabold text-slate-800 mb-2">Check Your Result</h2>
+        <p class="text-xs text-slate-500 mb-6">Enter your roll number to view your examination results</p>
+        
+        <div class="text-left mb-6">
+          <label class="block text-xs font-bold text-slate-700 mb-2">Roll Number*</label>
+          <input type="text" placeholder="ENTER YOUR ROLL NUMBER" class="portal-input text-center text-lg uppercase">
+        </div>
+
+        <button type="button" class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i> Search Result
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Interactive Tab Switching Logic -->
+  <script>
+    const tabData = {
+      registration: {
+        badge: "Registration Form",
+        title: "Registration Form",
+        subtitle: "Start your journey towards excellence. Fill out the form to apply for our courses"
+      },
+      idcard: {
+        badge: "Download ID Card",
+        title: "Download Your ID Card",
+        subtitle: "Enter your CNIC to download your student ID Card"
+      },
+      entrytest: {
+        badge: "Entry Test Status",
+        title: "Check Your Entry Test Status",
+        subtitle: "Enter your roll number to view your entry test / induction status"
+      },
+      result: {
+        badge: "Result",
+        title: "Check Your Result",
+        subtitle: "Enter your roll number to view your examination results"
+      }
+    };
+
+    function switchTab(tabKey) {
+      // 1. Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      
+      // 2. Remove active class from buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+      // 3. Show selected tab content & highlight button
+      const selectedContent = document.getElementById(`tab-${tabKey}`);
+      if (selectedContent) selectedContent.classList.remove('hidden');
+
+      const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(
+        btn => btn.getAttribute('onclick').includes(tabKey)
+      );
+      if (targetBtn) targetBtn.classList.add('active');
+
+      // 4. Update Hero Banner Text & Badge
+      const data = tabData[tabKey];
+      if (data) {
+        document.getElementById('hero-badge-text').textContent = data.badge;
+        document.getElementById('hero-title').textContent = data.title;
+        document.getElementById('hero-subtitle').textContent = data.subtitle;
+      }
+    }
+  </script>
+</body>
+</html>
