@@ -433,7 +433,7 @@ body {
 .smit-hero-banner {
   position: relative;
   width: 100%;
-  margin-top: 60px; /* Offset for fixed top navbar */
+  margin-top: 68px; /* Offset for fixed top navbar */
   background-image: linear-gradient(90deg, #1c7ed6 0%, #3aa07a 52%, #6db51a 100%);
   color: #ffffff;
   padding: 48px 24px;

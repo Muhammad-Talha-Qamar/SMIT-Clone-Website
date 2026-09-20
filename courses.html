@@ -5,60 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courses | Saylani Mass IT Training</title>
   <link rel="icon" type="image/x-icon" href="./assets/images/logos/main image.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/nav.css">
+  <link rel="stylesheet" href="./assets/css/courses.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/clone.css">
+  <script src="./assets/js/tailwind-config.js"></script>
 </head>
 <body class="font-montserrat bg-[#f7f9fc] text-slate-800">
-  <header class="Main">
-    <a href="./index.html"><img id="item1" src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo"></a>
-    <nav id="min">
-      <div><a id="item2" href="./index.html">Home</a></div>
-      <div><a id="item3" href="./about.html">About</a></div>
-      <div><a id="item4" href="./courses.html">Courses</a></div>
-      <div><a id="item5" href="./campuses.html">Campuses</a></div>
-      <div><a id="item6" href="./check-results.html">Check Result</a></div>
-      <div id="m"><a id="item7" href="https://www.saylanimit.com/enroll">Enroll Now</a></div>
-    </nav>
-  </header>
+  <header id="site-header"></header>
 
   <section class="smit-hero-banner">
     <div class="glow-top-right" aria-hidden="true"></div>
     <div class="glow-bottom-left" aria-hidden="true"></div>
     <div class="smit-hero-container">
-      <a href="./index.html" class="smit-pill-badge"><span class="pill-text">Courses</span></a>
+      <span class="smit-pill-badge">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        Courses
+      </span>
       <h1 class="smit-hero-heading">Browse Our Top Courses</h1>
-      <p class="smit-hero-subheading">Industry-ready programs designed to launch careers across development, design, networking, and more.</p>
+      <p class="smit-hero-subheading">Industry-ready programs designed to launch careers across development, design, networking, and vocational skills.</p>
     </div>
   </section>
 
-  <main class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-12 sm:grid-cols-2 lg:grid-cols-3">
-    <a class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" href="https://www.saylanimit.com/enroll">
-      <img src="https://res.cloudinary.com/saylani-welfare/image/upload/v1764063345/SMIT/Courses/FLC.jpg" alt="Freelancing" class="h-40 w-full object-cover">
-      <div class="p-4"><h2 class="font-bold">Freelancing</h2><p class="mt-1 text-sm text-slate-500">8 months</p></div>
-    </a>
-    <a class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" href="https://www.saylanimit.com/enroll">
-      <img src="https://res.cloudinary.com/saylani-welfare/image/upload/v1783313586/SMIT/Courses/VCC.jpg" alt="Video Content Creation With AI" class="h-40 w-full object-cover">
-      <div class="p-4"><h2 class="font-bold">Video Content Creation With AI</h2><p class="mt-1 text-sm text-slate-500">4 months</p></div>
-    </a>
-    <a class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" href="https://www.saylanimit.com/enroll">
-      <img src="https://res.cloudinary.com/saylani-welfare/image/upload/v1764064506/SMIT/Courses/UIUXA.jpg" alt="UI UX Design With AI" class="h-40 w-full object-cover">
-      <div class="p-4"><h2 class="font-bold">UI UX Design With AI</h2><p class="mt-1 text-sm text-slate-500">4 months</p></div>
-    </a>
-    <a class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" href="https://www.saylanimit.com/enroll">
-      <img src="https://res.cloudinary.com/saylani-welfare/image/upload/v1764064487/SMIT/Courses/GDA.jpg" alt="Graphic Designing With AI" class="h-40 w-full object-cover">
-      <div class="p-4"><h2 class="font-bold">Graphic Designing With AI</h2><p class="mt-1 text-sm text-slate-500">6 months</p></div>
-    </a>
-    <a class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" href="https://www.saylanimit.com/enroll">
-      <img src="https://res.cloudinary.com/saylani-welfare/image/upload/v1764064321/SMIT/Courses/SEC.jpg" alt="Shopify E-Commerce Expert" class="h-40 w-full object-cover">
-      <div class="p-4"><h2 class="font-bold">Shopify E-Commerce Expert</h2><p class="mt-1 text-sm text-slate-500">3 months</p></div>
-    </a>
-    <a class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" href="https://www.saylanimit.com/enroll">
-      <img src="https://res.cloudinary.com/saylani-welfare/image/upload/v1764064467/SMIT/Courses/AGI.jpg" alt="Agentic AI" class="h-40 w-full object-cover">
-      <div class="p-4"><h2 class="font-bold">Agentic AI</h2><p class="mt-1 text-sm text-slate-500">12 months</p></div>
-    </a>
+  <main class="catalog">
+    <div class="catalog-intro">
+      <h2>Choose a program that fits your goals</h2>
+      <p>Filter by category and enroll through our local registration form. Every course is listed with duration and a clear next step.</p>
+    </div>
+
+    <div class="catalog-tabs" role="tablist" aria-label="Course categories">
+      <button type="button" class="catalog-tab is-active" data-filter="all">All Courses</button>
+      <button type="button" class="catalog-tab" data-filter="open">Admissions Open</button>
+      <button type="button" class="catalog-tab" data-filter="development">Development</button>
+      <button type="button" class="catalog-tab" data-filter="designing">Designing</button>
+      <button type="button" class="catalog-tab" data-filter="networking">Networking</button>
+      <button type="button" class="catalog-tab" data-filter="entrepreneurship">Entrepreneurship</button>
+      <button type="button" class="catalog-tab" data-filter="vocational">Vocational Training</button>
+    </div>
+
+    <div id="catalog-grid" class="catalog-grid"></div>
+    <p id="catalog-empty" class="catalog-empty">No courses found in this category.</p>
+
+    <div class="catalog-cta">
+      <div>
+        <h3>Ready to start your IT career?</h3>
+        <p>Submit the registration form and our team will guide you to the nearest campus.</p>
+      </div>
+      <a href="./check-results.html">Enroll Now</a>
+    </div>
   </main>
+
+  <script src="./assets/js/nav.js"></script>
+  <script>
+    (function () {
+      var enrollUrl = './check-results.html';
+      var courses = [
+        { title: 'Freelancing', desc: 'Learn computers, digital marketing, SEO, and freelance platforms so you can start earning independently.', duration: '8 months', category: 'open', image: './assets/images/home/male_freelancer.png' },
+        { title: 'Video Content Creation With AI', desc: 'Plan, shoot, and edit professional video content with AI-assisted production workflows.', duration: '4 months', category: 'open', image: './assets/images/home/online_learning.png' },
+        { title: 'UI UX Design With AI', desc: 'Design usable digital products with research, wireframes, prototypes, and AI design tools.', duration: '4 months', category: 'open', image: './assets/images/home/laptop_icon.png' },
+        { title: 'Graphic Designing With AI', desc: 'Build commercial-ready visual design skills for brands, social media, and print.', duration: '6 months', category: 'open', image: './assets/images/home/comp.png' },
+        { title: 'Shopify E-Commerce Expert', desc: 'Set up, customize, and manage Shopify stores for real e-commerce businesses.', duration: '3 months', category: 'open', image: './assets/images/home/it.webp' },
+        { title: 'Digital Marketing With AI', desc: 'Run campaigns across search, social, and analytics with modern AI marketing tools.', duration: '5 months', category: 'open', image: './assets/images/home/globe.png' },
+        { title: 'Agentic AI', desc: 'A year-long professional track covering AI agents, automation, and applied machine workflows.', duration: '12 months', category: 'open', image: './assets/images/home/it.webp' },
+        { title: 'Artificial Intelligence and Data Science', desc: 'A complete professional track covering data analysis, machine learning, and AI applications.', duration: '10 months', category: 'open', image: './assets/images/home/comp.png' },
+        { title: 'Bootcamp (Artificial Intelligence)', desc: 'An intensive AI development bootcamp focused on practical projects and job-ready skills.', duration: '4 months', category: 'development', image: './assets/images/home/it.webp' },
+        { title: 'Bootcamp (Blockchain Development)', desc: 'Learn blockchain fundamentals, smart contracts, and decentralized application development.', duration: '4 months', category: 'development', image: './assets/images/home/laptop_icon.png' },
+        { title: 'Odoo Functional Consultant', desc: 'Train as an ERP consultant using Odoo for business operations and implementation.', duration: '10 months', category: 'development', image: './assets/images/home/employ.webp' },
+        { title: 'Devops Engineer', desc: 'Cover CI/CD, cloud infrastructure, and deployment pipelines used in modern engineering teams.', duration: '6 months', category: 'development', image: './assets/images/home/comp.png' },
+        { title: 'Video Content Creation', desc: 'Create professional video content for brands, education, and social platforms.', duration: '4 months', category: 'designing', image: './assets/images/home/online_learning.png' },
+        { title: 'Video Animation', desc: 'Build 2D and motion graphics skills for explainer videos and digital storytelling.', duration: '6 months', category: 'designing', image: './assets/images/home/alumni_grp.png' },
+        { title: 'UI UX Design With AI', desc: 'Product design with AI tools, from user research to high-fidelity prototypes.', duration: '4 months', category: 'designing', image: './assets/images/home/laptop_icon.png' },
+        { title: 'Autocad', desc: 'Technical drafting and design for architecture, interiors, and engineering drawings.', duration: '3 months', category: 'designing', image: './assets/images/home/apprenticeship.png' },
+        { title: 'SOC Analyst CyberOps', desc: 'Monitor, detect, and respond to security incidents in a security operations setting.', duration: '4 months', category: 'networking', image: './assets/images/home/globe.png' },
+        { title: 'Networking Essentials', desc: 'Core networking fundamentals including routing, switching, and network troubleshooting.', duration: '3 months', category: 'networking', image: './assets/images/home/earth_icon.png' },
+        { title: 'Cybersecurity Essentials', desc: 'Foundations of cybersecurity, threat awareness, and defensive practices.', duration: '3 months', category: 'networking', image: './assets/images/home/globe_icon.png' },
+        { title: 'CyberOps Associate', desc: 'A Cisco-aligned CyberOps associate track for security operations careers.', duration: '6 months', category: 'networking', image: './assets/images/home/cisco_icon.png' },
+        { title: 'Professional Communication', desc: 'Workplace communication, presentation, and career-readiness skills for IT professionals.', duration: '3 months', category: 'entrepreneurship', image: './assets/images/home/online_learning.png' },
+        { title: 'English Language & Communication', desc: 'Build spoken and written English for interviews, client work, and professional settings.', duration: '4 months', category: 'entrepreneurship', image: './assets/images/home/male_freelancer.png' },
+        { title: 'AI & Game Creators', desc: 'Create games and interactive experiences using AI-assisted design and development tools.', duration: '4 months', category: 'entrepreneurship', image: './assets/images/home/it.webp' },
+        { title: 'Little Geniuses: Coding for Kids', desc: 'A fun lab introducing children to coding, design, and AI through guided projects.', duration: '3 months', category: 'entrepreneurship', image: './assets/images/home/graduate_cap.png' },
+        { title: 'Health, Safety and Environment', desc: 'Workplace HSE practices to keep teams and job sites compliant and safe.', duration: '3 months', category: 'vocational', image: './assets/images/home/apprenticeship.png' },
+        { title: 'Fire Alarm System Installation', desc: 'Install, test, and maintain fire alarm systems for residential and commercial sites.', duration: '3 months', category: 'vocational', image: './assets/images/home/comp.png' },
+        { title: 'Domestic Electrician', desc: 'Hands-on residential electrical installation, wiring, and safety procedures.', duration: '4 months', category: 'vocational', image: './assets/images/home/apprenticeship.png' },
+        { title: 'Plumber Technician', desc: 'Plumbing installation and repair for homes, campuses, and commercial buildings.', duration: '4 months', category: 'vocational', image: './assets/images/home/online_learning.png' }
+      ];
+
+      var labels = {
+        open: 'Admissions Open',
+        development: 'Development',
+        designing: 'Designing',
+        networking: 'Networking',
+        entrepreneurship: 'Entrepreneurship',
+        vocational: 'Vocational Training'
+      };
+
+      var grid = document.getElementById('catalog-grid');
+      var empty = document.getElementById('catalog-empty');
+      var tabs = document.querySelectorAll('.catalog-tab');
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function render(filter) {
+        var items = courses.filter(function (course) {
+          return filter === 'all' || course.category === filter;
+        });
+
+        empty.style.display = items.length ? 'none' : 'block';
+        grid.innerHTML = items.map(function (course) {
+          return (
+            '<article class="catalog-card">' +
+              '<div class="catalog-card__media">' +
+                '<img src="' + escapeHtml(course.image) + '" alt="' + escapeHtml(course.title) + '">' +
+                '<span class="catalog-card__badge">Admission Open</span>' +
+              '</div>' +
+              '<div class="catalog-card__body">' +
+                '<p class="catalog-card__category">' + escapeHtml(labels[course.category] || course.category) + '</p>' +
+                '<h3 class="catalog-card__title">' + escapeHtml(course.title) + '</h3>' +
+                '<p class="catalog-card__desc">' + escapeHtml(course.desc) + '</p>' +
+                '<div class="catalog-card__footer">' +
+                  '<a class="enroll-btn" href="' + enrollUrl + '">Enroll Now</a>' +
+                  '<span class="catalog-card__duration">Duration<strong>' + escapeHtml(course.duration) + '</strong></span>' +
+                '</div>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (item) { item.classList.remove('is-active'); });
+          tab.classList.add('is-active');
+          render(tab.getAttribute('data-filter'));
+        });
+      });
+
+      render('all');
+    })();
+  </script>
 </body>
 </html>

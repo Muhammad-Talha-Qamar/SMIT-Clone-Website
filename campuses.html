@@ -14,90 +14,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="./assets/css/nav.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            montserrat: ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              blue: '#007bff',
-              primary: '#0b73b7',
-              sky: '#1370b8',
-              green: '#6da800',
-              mega: '#087fc3',
-            },
-          },
-        },
-      },
-    };
-  </script>
+  <script src="./assets/js/tailwind-config.js"></script>
 
   <!-- Stylesheet Component Scaffolding -->
   <style>
-    /* Mega Menu Controls */
-    .courses-mega {
-      display: none;
-    }
-    .courses-nav.is-open > .courses-mega {
-      display: block;
-    }
-    @media (min-width: 768px) {
-      .courses-mega {
-        position: fixed;
-        left: 50%;
-        top: var(--courses-mega-top, 64px);
-        z-index: 60;
-        width: min(calc(100vw - 30px), 72rem);
-        transform: translateX(-50%);
-        border: 1px solid #e5e7eb;
-        border-radius: 0 0 10px 10px;
-        background: #fff;
-        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-      }
-      .courses-mega-bridge {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 100%;
-        height: var(--courses-mega-gap, 64px);
-      }
-      .courses-mega__panel {
-        overflow: hidden;
-        border-radius: 0 0 10px 10px;
-      }
-    }
-    @media (max-width: 767px) {
-      .courses-mega {
-        position: static;
-        width: 100%;
-        max-height: min(70vh, 520px);
-        overflow-y: auto;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        margin-top: 0.35rem;
-        background: #fff;
-      }
-      .courses-mega-bridge {
-        display: none;
-      }
-    }
-    .courses-mega__title,
-    .courses-mega__link-text,
-    .courses-mega__card-title {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
     /* Base Hero Banner styling */
     .smit-hero-banner {
       position: relative;
       width: 100%;
-      margin-top: 64px;
+      margin-top: 68px;
       background-color: #0b73b7;
       background-image: linear-gradient(90deg, #1c7ed6 0%, #3aa07a 52%, #6db51a 100%);
       color: #ffffff;
@@ -445,63 +372,7 @@
 
 <body class="font-montserrat text-slate-800 bg-white">
 
-  <!-- Main Fixed Header Navigation -->
-  <header class="fixed top-0 left-0 z-50 w-full bg-white shadow-[2px_13px_7px_-1px_rgba(0,0,0,0.15)]">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
-      <a href="./index.html" class="shrink-0 animate__animated animate__fadeInLeft">
-        <img src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo" class="h-10 w-auto">
-      </a>
-
-      <!-- Mobile Menu Toggle Button -->
-      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 md:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
-      </button>
-
-      <!-- Desktop & Mobile Navigation Links -->
-      <div id="nav-menu" class="absolute left-0 top-full hidden w-full flex-col gap-1 border-t border-gray-100 bg-white px-4 py-4 shadow-lg animate__animated animate__fadeInDown md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 md:shadow-none lg:gap-8 [&.is-open]:flex">
-        <a href="./index.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Home</a>
-        <a href="./about.html" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">About</a>
-        
-        <!-- Courses Mega Menu Dropdown Container -->
-        <div class="courses-nav relative w-full md:w-auto" id="courses-nav">
-          <button
-            type="button"
-            id="courses-trigger"
-            class="flex w-full items-center justify-between rounded px-2 py-2 text-left text-sm font-medium text-black hover:text-brand-primary md:inline-flex md:w-auto md:justify-start md:py-0"
-            aria-expanded="false"
-            aria-controls="courses-mega"
-            aria-haspopup="true">
-            <span>Courses</span>
-            <i class="fa-solid fa-chevron-down ml-2 text-[10px] text-slate-500" aria-hidden="true"></i>
-          </button>
-          
-          <div id="courses-mega" class="courses-mega" role="region" aria-label="Courses menu">
-            <div class="courses-mega-bridge" aria-hidden="true"></div>
-            <div class="courses-mega__panel">
-              <div class="courses-mega__categories grid grid-cols-1 gap-6 px-5 py-6 sm:grid-cols-2 md:grid-cols-3 min-[1200px]:grid-cols-5 min-[1200px]:gap-5 min-[1200px]:px-8 min-[1200px]:py-7" id="courses-categories"></div>
-              <div class="courses-mega__top border-t border-[#e5e7eb] bg-[#f8f9fa] px-5 py-5 min-[1200px]:px-8">
-                <h3 class="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-700">
-                  <i class="fa-solid fa-graduation-cap text-slate-500" aria-hidden="true"></i>
-                  Top Courses
-                </h3>
-                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 min-[1200px]:grid-cols-4" id="courses-top"></div>
-              </div>
-              <div class="flex min-h-[52px] items-center justify-center border-t border-[#e5e7eb] bg-white px-4">
-                <a href="https://www.saylanimit.com/" class="inline-flex items-center gap-2 text-sm font-medium text-brand-mega transition hover:text-brand-primary">
-                  See All Courses
-                  <i class="fa-solid fa-arrow-up-right text-xs" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="./campuses.html" class="block rounded px-2 py-2 text-sm font-medium text-brand-primary font-semibold md:py-0">Campuses</a>
-        <a href="https://www.saylanimit.com/result" class="block rounded px-2 py-2 text-sm font-medium text-black hover:text-brand-primary md:py-0">Check Result</a>
-        <a href="https://www.saylanimit.com/enroll" class="mt-1 inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-primary md:mt-0">Enroll Now</a>
-      </div>
-    </nav>
-  </header>
+  <header id="site-header"></header>
   
   <!-- Hero Banner -->
   <section class="smit-hero-banner">
@@ -782,39 +653,8 @@
     </div>
   </main>
 
-  <!-- Interactive JavaScript Toggle Logic -->
+  <script src="./assets/js/nav.js"></script>
   <script>
-    // Toggle Mobile Navigation Menu
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', isOpen);
-      });
-    }
-
-    // Toggle Courses Mega Menu Container
-    const coursesNav = document.getElementById('courses-nav');
-    const coursesTrigger = document.getElementById('courses-trigger');
-
-    if (coursesNav && coursesTrigger) {
-      coursesTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = coursesNav.classList.toggle('is-open');
-        coursesTrigger.setAttribute('aria-expanded', isOpen);
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!coursesNav.contains(e.target)) {
-          coursesNav.classList.remove('is-open');
-          coursesTrigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-
     const citySelect = document.getElementById('city-select');
     const campusCards = document.querySelectorAll('.campus-card[data-city]');
     const mapMarkers = document.querySelectorAll('.map-marker[data-city]');

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-legacy-css="true">
 
 <head>
     <meta charset="UTF-8">
@@ -13,47 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind-config.js"></script>
 </head>
 
 <body>
-    <!-- Main Fixed Navigation Bar -->
-    <header class="Main">
-        <a href="./index.html" class="logo-link">
-            <img id="item1" class="animate__animated animate__fadeInLeft" src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo">
-        </a>
-        
-        <!-- Hamburger Menu Toggle (Mobile) -->
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle Navigation">
-        <label for="nav-toggle" class="hamburger" aria-label="Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </label>
-
-        <!-- Navigation Items -->
-        <nav id="min" class="animate__animated animate__fadeInDown">
-    <div><a id="item2" href="./index.html">Home</a></div>
-    <div><a id="item3" href="./about.html">About</a></div>
-    
-    <!-- Courses Dropdown Menu -->
-    <div class="nav-dropdown">
-        <a id="item4" href="https://www.saylanimit.com/" class="dropdown-trigger">
-            Courses <i class="fa-solid fa-chevron-down dropdown-icon"></i>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="https://www.saylanimit.com/courses/modern-web-application-development">Web Development</a></li>
-            <li><a href="https://www.saylanimit.com/courses/agentic-ai">Agentic AI</a></li>
-            <li><a href="https://www.saylanimit.com/courses/artificial-intelligence-and-data-science">AI &amp; Data Science</a></li>
-            <li><a href="https://www.saylanimit.com/courses/graphic-designing-with-ai">Graphic Design</a></li>
-            <li><a href="https://www.saylanimit.com/courses/3d-animation">3D Animation</a></li>
-        </ul>
-    </div>
-
-    <div><a id="item5" href="./campuses.html">Campuses</a></div>
-    <div><a id="item6" href="./check-results.html">Check Result</a></div>
-    <div id="m"><a id="item7" href="https://www.saylanimit.com/enroll">Enroll Now</a></div>
-</nav>
-    </header>
+    <header id="site-header"></header>
 
     <div id="contact">
         <a href="https://www.saylanimit.com/"> <img class="contact-img" src="./assets/images/shared/contact.png" alt="Contact"></a>
@@ -200,6 +166,7 @@
             </div>
         </div>
     </footer>
+    <script src="./assets/js/nav.js"></script>
 </body>
 
 </html>

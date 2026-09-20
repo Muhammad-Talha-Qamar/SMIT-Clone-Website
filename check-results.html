@@ -14,27 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="./assets/css/nav.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            montserrat: ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              blue: '#007bff',
-              primary: '#0b73b7',
-              sky: '#1370b8',
-              green: '#6da800',
-              mega: '#087fc3',
-            },
-          },
-        },
-      },
-    };
-  </script>
+  <script src="./assets/js/tailwind-config.js"></script>
 
   <!-- Custom Styles -->
   <style>
@@ -42,7 +24,7 @@
     .smit-hero-banner {
       position: relative;
       width: 100%;
-      margin-top: 64px;
+      margin-top: 68px;
       background-color: #0b73b7;
       background-image: linear-gradient(90deg, #1c7ed6 0%, #3aa07a 52%, #6db51a 100%);
       color: #ffffff;
@@ -151,23 +133,7 @@
 
 <body class="font-montserrat text-slate-800 bg-[#f8fafc]">
 
-  <!-- Top Navbar -->
-  <header class="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
-      <a href="./index.html" class="shrink-0">
-        <img src="./assets/images/logos/transparent_logo.png" alt="SMIT Logo" class="h-10 w-auto">
-      </a>
-
-      <div class="hidden md:flex items-center gap-6 lg:gap-8">
-        <a href="./index.html" class="text-sm font-medium text-black hover:text-brand-primary">Home</a>
-        <a href="./about.html" class="text-sm font-medium text-black hover:text-brand-primary">About</a>
-        <a href="./courses.html" class="text-sm font-medium text-black hover:text-brand-primary">Courses</a>
-        <a href="./campuses.html" class="text-sm font-medium text-black hover:text-brand-primary">Campuses</a>
-        <a href="./check-results.html" class="text-sm font-medium text-black hover:text-brand-primary">Check Result</a>
-        <a href="https://www.saylanimit.com/enroll" class="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-primary">Enroll Now</a>
-      </div>
-    </nav>
-  </header>
+  <header id="site-header"></header>
 
   <!-- Dynamic Hero Banner -->
   <section class="smit-hero-banner">
@@ -386,5 +352,6 @@
       }
     }
   </script>
+  <script src="./assets/js/nav.js"></script>
 </body>
 </html>
