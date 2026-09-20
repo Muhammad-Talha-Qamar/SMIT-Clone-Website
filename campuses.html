@@ -200,17 +200,125 @@
     }
 
     .map-wrapper {
+      position: relative;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .map-stage {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    .map-image-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
     }
 
     .map-image {
-      max-width: 100%;
-      height: auto;
-      max-height: 420px;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .map-markers {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .map-marker {
+      position: absolute;
+      z-index: 10;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+    }
+
+    .map-marker-hit {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .map-pin-icon {
+      width: 24px;
+      height: 24px;
+      color: #0b73b7;
+      fill: #ffffff;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .map-marker:hover .map-pin-icon,
+    .map-marker.is-active .map-pin-icon {
+      transform: scale(1.2);
+      color: #08629c;
+    }
+
+    .map-marker-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-top: 8px;
+      transform: translateX(-50%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .map-marker-label span {
+      display: inline-block;
+      white-space: nowrap;
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #2d2d2d;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px rgba(15, 23, 42, 0.08);
+      padding: 6px 12px;
+    }
+
+    .map-hint {
+      margin: 0 0 24px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .campus-card.is-hidden {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .map-stage {
+        height: 500px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .map-stage {
+        height: 600px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .map-stage {
+        height: 700px;
+      }
     }
 
     .city-select-wrapper {
@@ -418,10 +526,80 @@
   <main class="campuses-section">
     <div class="campuses-container">
       
-      <!-- Interactive Pakistan Map Illustration -->
+      <!-- Interactive Pakistan Map with city markers -->
       <div class="map-wrapper">
-        <img src="./assets/images/home/pk_map.svg" alt="Pakistan Campuses Map" class="map-image">
+        <div class="map-stage">
+          <div class="map-image-frame">
+            <img
+              src="./assets/images/home/pk_map.svg"
+              alt="Pakistan Map showing SMIT campus locations"
+              class="map-image">
+          </div>
+          <div class="map-markers" id="map-markers">
+            <button type="button" class="map-marker" style="left: 38%; top: 88%;" data-city="karachi" aria-label="Karachi (28)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Karachi (28)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 60%; top: 40%;" data-city="faisalabad" aria-label="Faisalabad (1)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Faisalabad (1)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 45%; top: 78%;" data-city="hyderabad" aria-label="Hyderabad (3)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Hyderabad (3)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 57%; top: 19%;" data-city="peshawar" aria-label="Peshawar (1)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Peshawar (1)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 38%; top: 48%;" data-city="quetta" aria-label="Quetta (1)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Quetta (1)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 60%; top: 20%;" data-city="islamabad" aria-label="Islamabad (1)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Islamabad (1)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 61%; top: 22%;" data-city="rawalpindi" aria-label="Rawalpindi (4)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Rawalpindi (4)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 65%; top: 33%;" data-city="gujranwala" aria-label="Gujranwala (2)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Gujranwala (2)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 42%; top: 70%;" data-city="sukkur" aria-label="Sukkur (1)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Sukkur (1)</span></span>
+            </button>
+            <button type="button" class="map-marker" style="left: 52%; top: 38%;" data-city="lakki-marwat" aria-label="Lakki Marwat (1)">
+              <span class="map-marker-hit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="map-pin-icon" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <span class="map-marker-label"><span>Lakki Marwat (1)</span></span>
+            </button>
+          </div>
+        </div>
       </div>
+      <p class="map-hint">Click on a city marker to view campuses</p>
 
       <!-- City Selection Dropdown -->
       <div class="city-select-wrapper">
@@ -437,8 +615,13 @@
           <option value="rawalpindi">Rawalpindi</option>
           <option value="gujranwala">Gujranwala</option>
           <option value="sukkur">Sukkur</option>
+          <option value="lakki-marwat">Lakki Marwat</option>
           <option value="multan">Multan</option>
+          <option value="ghotki">Ghotki</option>
+          <option value="turbat">Turbat</option>
+          <option value="abbottabad">Abbottabad</option>
           <option value="lahore">Lahore</option>
+          <option value="waziristan">Waziristan</option>
         </select>
       </div>
 
@@ -451,7 +634,7 @@
       <!-- Responsive Grid Container for Campus Cards -->
       <div class="campus-grid">
         
-        <div class="campus-card">
+        <div class="campus-card" data-city="karachi">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Karachi</h3>
@@ -460,7 +643,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="faisalabad">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Faisalabad</h3>
@@ -469,7 +652,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="hyderabad">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Hyderabad</h3>
@@ -478,7 +661,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="peshawar">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Peshawar</h3>
@@ -487,7 +670,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="quetta">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Quetta</h3>
@@ -496,7 +679,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="islamabad">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Islamabad</h3>
@@ -505,7 +688,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="rawalpindi">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Rawalpindi</h3>
@@ -514,7 +697,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="gujranwala">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Gujranwala</h3>
@@ -523,7 +706,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="sukkur">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Sukkur</h3>
@@ -532,7 +715,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="lakki-marwat">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Lakki Marwat</h3>
@@ -541,7 +724,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="multan">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Multan</h3>
@@ -550,7 +733,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="ghotki">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Ghotki</h3>
@@ -559,7 +742,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="turbat">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Turbat</h3>
@@ -568,7 +751,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="abbottabad">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Abbottabad</h3>
@@ -577,7 +760,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="lahore">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Lahore</h3>
@@ -586,7 +769,7 @@
           </div>
         </div>
 
-        <div class="campus-card">
+        <div class="campus-card" data-city="waziristan">
           <div class="campus-card-content">
             <i class="fa-solid fa-location-dot campus-icon"></i>
             <h3 class="campus-city">Waziristan</h3>
@@ -631,6 +814,37 @@
         }
       });
     }
+
+    const citySelect = document.getElementById('city-select');
+    const campusCards = document.querySelectorAll('.campus-card[data-city]');
+    const mapMarkers = document.querySelectorAll('.map-marker[data-city]');
+
+    function filterCampuses(city) {
+      campusCards.forEach((card) => {
+        const match = !city || card.dataset.city === city;
+        card.classList.toggle('is-hidden', !match);
+      });
+      mapMarkers.forEach((marker) => {
+        marker.classList.toggle('is-active', Boolean(city) && marker.dataset.city === city);
+      });
+    }
+
+    if (citySelect) {
+      citySelect.addEventListener('change', () => {
+        filterCampuses(citySelect.value);
+      });
+    }
+
+    mapMarkers.forEach((marker) => {
+      marker.addEventListener('click', () => {
+        const city = marker.dataset.city;
+        if (citySelect) {
+          citySelect.value = city;
+        }
+        filterCampuses(city);
+        document.querySelector('.campus-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   </script>
 </body>
 </html>
