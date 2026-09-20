@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+}
+
+button,
+a,
+input,
+textarea,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+li,
+label {
+  font-family: inherit;
+}
+
+.courses-mega,
+.courses-mega a,
+.courses-mega button,
+.courses-mega h3,
+.courses-mega h4,
+.courses-mega span {
+  font-family: var(--font-sans);
+}
