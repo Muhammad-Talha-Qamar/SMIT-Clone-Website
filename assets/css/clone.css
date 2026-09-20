@@ -48,9 +48,97 @@ body {
   display: none;
 }
 
-.course-card,
+.course-card {
+  scroll-snap-align: start;
+}
+
 .review-card {
   scroll-snap-align: start;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+.review-card:focus-visible {
+  outline: 3px solid #2f80ed;
+  outline-offset: 3px;
+}
+
+.review-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.review-modal.is-open {
+  display: flex;
+}
+
+.review-modal__dialog {
+  position: relative;
+  width: min(920px, 100%);
+}
+
+.review-modal__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+}
+
+.review-modal__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+.review-modal__frame iframe,
+.review-modal__frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.review-modal__meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  pointer-events: none;
+}
+
+.review-modal__meta p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.review-modal__meta span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .city-chip {
