@@ -21,7 +21,7 @@
   <section class="smit-hero-banner">
     <div class="glow-top-right" aria-hidden="true"></div>
     <div class="glow-bottom-left" aria-hidden="true"></div>
-    <div class="smit-hero-container">
+    <div class="smit-hero-container" data-reveal="up">
       <span class="smit-pill-badge">
         <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
         Courses
@@ -32,12 +32,12 @@
   </section>
 
   <main class="catalog">
-    <div class="catalog-intro">
+    <div class="catalog-intro" data-reveal="up">
       <h2>Choose a program that fits your goals</h2>
       <p>Filter by category and enroll through our local registration form. Every course is listed with duration and a clear next step.</p>
     </div>
 
-    <div class="catalog-tabs" role="tablist" aria-label="Course categories">
+    <div class="catalog-tabs" role="tablist" aria-label="Course categories" data-reveal="fade">
       <button type="button" class="catalog-tab is-active" data-filter="all">All Courses</button>
       <button type="button" class="catalog-tab" data-filter="open">Admissions Open</button>
       <button type="button" class="catalog-tab" data-filter="development">Development</button>
@@ -47,10 +47,10 @@
       <button type="button" class="catalog-tab" data-filter="vocational">Vocational Training</button>
     </div>
 
-    <div id="catalog-grid" class="catalog-grid"></div>
+    <div id="catalog-grid" class="catalog-grid" data-reveal-stagger="up"></div>
     <p id="catalog-empty" class="catalog-empty">No courses found in this category.</p>
 
-    <div class="catalog-cta">
+    <div class="catalog-cta" data-reveal="up">
       <div>
         <h3>Ready to start your IT career?</h3>
         <p>Submit the registration form and our team will guide you to the nearest campus.</p>
@@ -60,6 +60,7 @@
   </main>
 
   <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/reveal.js"></script>
   <script>
     (function () {
       var enrollUrl = './check-results.html';
@@ -123,7 +124,7 @@
         empty.style.display = items.length ? 'none' : 'block';
         grid.innerHTML = items.map(function (course) {
           return (
-            '<article class="catalog-card">' +
+            '<article class="catalog-card" data-reveal="up">' +
               '<div class="catalog-card__media">' +
                 '<img src="' + escapeHtml(course.image) + '" alt="' + escapeHtml(course.title) + '">' +
                 '<span class="catalog-card__badge">Admission Open</span>' +
@@ -140,6 +141,7 @@
             '</article>'
           );
         }).join('');
+        if (window.observeReveal) window.observeReveal(grid);
       }
 
       tabs.forEach(function (tab) {
