@@ -24,7 +24,14 @@
   font-family: var(--font-sans);
 }
 
-.site-header a {
+.site-header a,
+.site-header a:link,
+.site-header a:visited,
+.courses-mega a,
+.courses-mega a:link,
+.courses-mega a:visited {
+  font-family: var(--font-sans);
+  font-style: normal;
   text-decoration: none;
 }
 
@@ -296,21 +303,31 @@
   background: var(--nav-blue);
 }
 
-.courses-mega__link {
+.courses-mega__link,
+.courses-mega__link:link,
+.courses-mega__link:visited {
   display: flex;
   align-items: center;
   min-height: 34px;
   padding: 4px 0;
   color: #334155;
+  font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.35;
+  text-decoration: none;
   transition: color 0.15s ease, padding-left 0.15s ease;
 }
 
 .courses-mega__link:hover {
   color: var(--nav-blue);
   padding-left: 4px;
+}
+
+.courses-mega__link-text,
+.courses-mega__card-title,
+.courses-mega__card-meta {
+  font-family: var(--font-sans);
 }
 
 .courses-mega__link-text {
@@ -345,7 +362,9 @@
   gap: 12px;
 }
 
-.courses-mega__card {
+.courses-mega__card,
+.courses-mega__card:link,
+.courses-mega__card:visited {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -356,6 +375,9 @@
   border: 1px solid #e1e8ef;
   border-radius: 12px;
   background: #fff;
+  color: #1e293b;
+  font-family: var(--font-sans);
+  text-decoration: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -407,13 +429,17 @@
   background: #fff;
 }
 
-.courses-mega__all {
+.courses-mega__all,
+.courses-mega__all:link,
+.courses-mega__all:visited {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--nav-blue);
+  font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .courses-mega__all:hover {
