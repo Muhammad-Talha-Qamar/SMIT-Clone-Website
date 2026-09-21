@@ -21,23 +21,23 @@
   <section class="smit-hero-banner">
     <div class="glow-top-right" aria-hidden="true"></div>
     <div class="glow-bottom-left" aria-hidden="true"></div>
-    <div class="smit-hero-container" data-reveal="up">
-      <span class="smit-pill-badge">
+    <div class="smit-hero-container">
+      <span class="smit-pill-badge" data-reveal="left">
         <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
         Courses
       </span>
-      <h1 class="smit-hero-heading">Browse Our Top Courses</h1>
-      <p class="smit-hero-subheading">Industry-ready programs designed to launch careers across development, design, networking, and vocational skills.</p>
+      <h1 class="smit-hero-heading" data-reveal="right">Browse Our Top Courses</h1>
+      <p class="smit-hero-subheading" data-reveal="left">Industry-ready programs designed to launch careers across development, design, networking, and vocational skills.</p>
     </div>
   </section>
 
   <main class="catalog">
-    <div class="catalog-intro" data-reveal="up">
-      <h2>Choose a program that fits your goals</h2>
-      <p>Filter by category and enroll through our local registration form. Every course is listed with duration and a clear next step.</p>
+    <div class="catalog-intro">
+      <h2 data-reveal="left">Choose a program that fits your goals</h2>
+      <p data-reveal="right">Filter by category and enroll through our local registration form. Every course is listed with duration and a clear next step.</p>
     </div>
 
-    <div class="catalog-tabs" role="tablist" aria-label="Course categories" data-reveal="fade">
+    <div class="catalog-tabs" role="tablist" aria-label="Course categories" data-reveal-stagger="up">
       <button type="button" class="catalog-tab is-active" data-filter="all">All Courses</button>
       <button type="button" class="catalog-tab" data-filter="open">Admissions Open</button>
       <button type="button" class="catalog-tab" data-filter="development">Development</button>
@@ -50,12 +50,12 @@
     <div id="catalog-grid" class="catalog-grid" data-reveal-stagger="up"></div>
     <p id="catalog-empty" class="catalog-empty">No courses found in this category.</p>
 
-    <div class="catalog-cta" data-reveal="up">
-      <div>
+    <div class="catalog-cta">
+      <div data-reveal="left">
         <h3>Ready to start your IT career?</h3>
         <p>Submit the registration form and our team will guide you to the nearest campus.</p>
       </div>
-      <a href="./check-results.html">Enroll Now</a>
+      <a href="./check-results.html" data-reveal="right">Enroll Now</a>
     </div>
   </main>
 
@@ -122,9 +122,9 @@
         });
 
         empty.style.display = items.length ? 'none' : 'block';
-        grid.innerHTML = items.map(function (course) {
+        grid.innerHTML = items.map(function (course, index) {
           return (
-            '<article class="catalog-card" data-reveal="up">' +
+            '<article class="catalog-card" data-reveal="' + (index % 2 ? 'right' : 'left') + '">' +
               '<div class="catalog-card__media">' +
                 '<img src="' + escapeHtml(course.image) + '" alt="' + escapeHtml(course.title) + '">' +
                 '<span class="catalog-card__badge">Admission Open</span>' +

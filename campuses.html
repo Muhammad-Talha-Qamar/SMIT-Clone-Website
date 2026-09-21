@@ -379,15 +379,15 @@
     <div class="glow-top-right" aria-hidden="true"></div>
     <div class="glow-bottom-left" aria-hidden="true"></div>
 
-    <div class="smit-hero-container" data-reveal="up">
-      <a href="./campuses.html" class="smit-pill-badge">
+    <div class="smit-hero-container">
+      <a href="./campuses.html" class="smit-pill-badge" data-reveal="left">
         <i class="fa-solid fa-graduation-cap"></i>
         <span class="pill-text">Campuses</span>
       </a>
 
-      <h1 class="smit-hero-heading">Our Campuses</h1>
+      <h1 class="smit-hero-heading" data-reveal="right">Our Campuses</h1>
 
-      <p class="smit-hero-subheading">
+      <p class="smit-hero-subheading" data-reveal="left">
         Find SMIT training centers across Pakistan - bringing quality IT education closer to you
       </p>
     </div>
@@ -470,7 +470,7 @@
           </div>
         </div>
       </div>
-      <p class="map-hint">Click on a city marker to view campuses</p>
+      <p class="map-hint" data-reveal="up">Click on a city marker to view campuses</p>
 
       <!-- City Selection Dropdown -->
       <div class="city-select-wrapper" data-reveal="up">
@@ -663,8 +663,11 @@
     function filterCampuses(city) {
       campusCards.forEach((card) => {
         const match = !city || card.dataset.city === city;
+        const wasHidden = card.classList.contains('is-hidden');
         card.classList.toggle('is-hidden', !match);
+        if (match && wasHidden) card.classList.remove('is-inview');
       });
+      if (window.observeReveal) window.observeReveal(document.querySelector('.campus-grid'));
       mapMarkers.forEach((marker) => {
         marker.classList.toggle('is-active', Boolean(city) && marker.dataset.city === city);
       });

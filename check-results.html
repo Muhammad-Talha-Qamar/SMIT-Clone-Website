@@ -140,14 +140,14 @@
     <div class="glow-top-right" aria-hidden="true"></div>
     <div class="glow-bottom-left" aria-hidden="true"></div>
 
-    <div class="smit-hero-container" data-reveal="up">
-      <a href="#" id="hero-badge" class="smit-pill-badge">
+    <div class="smit-hero-container">
+      <a href="#" id="hero-badge" class="smit-pill-badge" data-reveal="left">
         <i class="fa-solid fa-arrow-right-to-bracket"></i>
         <span id="hero-badge-text">Registration Form</span>
       </a>
 
-      <h1 id="hero-title" class="text-3xl md:text-5xl font-extrabold text-white mb-3">Registration Form</h1>
-      <p id="hero-subtitle" class="text-sm md:text-base text-white/90 max-w-2xl">
+      <h1 id="hero-title" class="text-3xl md:text-5xl font-extrabold text-white mb-3" data-reveal="right">Registration Form</h1>
+      <p id="hero-subtitle" class="text-sm md:text-base text-white/90 max-w-2xl" data-reveal="left">
         Start your journey towards excellence. Fill out the form to apply for our courses
       </p>
     </div>
@@ -155,7 +155,7 @@
 
   <!-- Navigation Tab Bar -->
   <section class="max-w-6xl mx-auto px-4 mt-8">
-    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-6">
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-6" data-reveal-stagger="up">
       <button class="tab-btn active" onclick="switchTab('registration')">
         <i class="fa-regular fa-id-card"></i>
         <span>Registration Form</span>
@@ -176,7 +176,7 @@
   </section>
 
   <!-- Dynamic Content Sections -->
-  <main class="max-w-4xl mx-auto px-4 py-8" data-reveal="up">
+  <main class="max-w-4xl mx-auto px-4 py-8">
 
     <!-- 1. REGISTRATION FORM TAB -->
     <div id="tab-registration" class="tab-content">
@@ -336,7 +336,13 @@
 
       // 3. Show selected tab content & highlight button
       const selectedContent = document.getElementById(`tab-${tabKey}`);
-      if (selectedContent) selectedContent.classList.remove('hidden');
+      if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+        selectedContent.querySelectorAll('[data-reveal]').forEach(function (el) {
+          el.classList.remove('is-inview');
+        });
+        if (window.observeReveal) window.observeReveal(selectedContent);
+      }
 
       const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(
         btn => btn.getAttribute('onclick').includes(tabKey)
