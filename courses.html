@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courses | Saylani Mass IT Training</title>
+  <meta name="description" content="Browse SMIT courses in development, design, networking, entrepreneurship, and vocational training, then enroll online.">
   <script>
     (function () {
       try {
@@ -48,13 +49,13 @@
     </div>
 
     <div class="catalog-tabs" role="tablist" aria-label="Course categories" data-reveal-stagger="up">
-      <button type="button" class="catalog-tab is-active" data-filter="all">All Courses</button>
-      <button type="button" class="catalog-tab" data-filter="open">Admissions Open</button>
-      <button type="button" class="catalog-tab" data-filter="development">Development</button>
-      <button type="button" class="catalog-tab" data-filter="designing">Designing</button>
-      <button type="button" class="catalog-tab" data-filter="networking">Networking</button>
-      <button type="button" class="catalog-tab" data-filter="entrepreneurship">Entrepreneurship</button>
-      <button type="button" class="catalog-tab" data-filter="vocational">Vocational Training</button>
+      <button type="button" class="catalog-tab is-active" data-filter="all" role="tab" aria-selected="true">All Courses</button>
+      <button type="button" class="catalog-tab" data-filter="open" role="tab" aria-selected="false">Admissions Open</button>
+      <button type="button" class="catalog-tab" data-filter="development" role="tab" aria-selected="false">Development</button>
+      <button type="button" class="catalog-tab" data-filter="designing" role="tab" aria-selected="false">Designing</button>
+      <button type="button" class="catalog-tab" data-filter="networking" role="tab" aria-selected="false">Networking</button>
+      <button type="button" class="catalog-tab" data-filter="entrepreneurship" role="tab" aria-selected="false">Entrepreneurship</button>
+      <button type="button" class="catalog-tab" data-filter="vocational" role="tab" aria-selected="false">Vocational Training</button>
     </div>
 
     <div id="catalog-grid" class="catalog-grid" data-reveal-stagger="up"></div>
@@ -69,8 +70,8 @@
     </div>
   </main>
 
-  <script src="./assets/js/theme.js"></script>
-  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/theme.js?v=5"></script>
+  <script src="./assets/js/nav.js?v=6"></script>
   <script src="./assets/js/reveal.js"></script>
   <script>
     (function () {
@@ -87,11 +88,11 @@
         { title: 'Bootcamp (Artificial Intelligence)', desc: 'An intensive AI development bootcamp focused on practical projects and job-ready skills.', duration: '4 months', category: 'development', image: './assets/images/courses/BAI.jpg' },
         { title: 'Bootcamp (Blockchain Development)', desc: 'Learn blockchain fundamentals, smart contracts, and decentralized application development.', duration: '4 months', category: 'development', image: './assets/images/courses/BBT.jpg' },
         { title: 'Odoo Functional Consultant', desc: 'Train as an ERP consultant using Odoo for business operations and implementation.', duration: '10 months', category: 'development', image: './assets/images/courses/OFC.jpg' },
-        { title: 'Devops Engineer', desc: 'Cover CI/CD, cloud infrastructure, and deployment pipelines used in modern engineering teams.', duration: '6 months', category: 'development', image: './assets/images/courses/DE.jpg' },
+        { title: 'DevOps Engineer', desc: 'Cover CI/CD, cloud infrastructure, and deployment pipelines used in modern engineering teams.', duration: '6 months', category: 'development', image: './assets/images/courses/DE.jpg' },
         { title: 'Video Content Creation', desc: 'Create professional video content for brands, education, and social platforms.', duration: '4 months', category: 'designing', image: './assets/images/courses/VCC.jpg' },
         { title: 'Video Animation', desc: 'Build 2D and motion graphics skills for explainer videos and digital storytelling.', duration: '6 months', category: 'designing', image: './assets/images/courses/VA.jpg' },
         { title: 'UI UX Design With AI', desc: 'Product design with AI tools, from user research to high-fidelity prototypes.', duration: '4 months', category: 'designing', image: './assets/images/courses/UIUXA.jpg' },
-        { title: 'Autocad', desc: 'Technical drafting and design for architecture, interiors, and engineering drawings.', duration: '3 months', category: 'designing', image: './assets/images/courses/ATC.jpg' },
+        { title: 'AutoCAD', desc: 'Technical drafting and design for architecture, interiors, and engineering drawings.', duration: '3 months', category: 'designing', image: './assets/images/courses/ATC.jpg' },
         { title: 'SOC Analyst CyberOps', desc: 'Monitor, detect, and respond to security incidents in a security operations setting.', duration: '4 months', category: 'networking', image: './assets/images/courses/SOC.jpg' },
         { title: 'Networking Essentials', desc: 'Core networking fundamentals including routing, switching, and network troubleshooting.', duration: '3 months', category: 'networking', image: './assets/images/courses/NE.jpg' },
         { title: 'Cybersecurity Essentials', desc: 'Foundations of cybersecurity, threat awareness, and defensive practices.', duration: '3 months', category: 'networking', image: './assets/images/courses/CSE.jpg' },
@@ -138,7 +139,7 @@
             '<article class="catalog-card" data-reveal="' + (index % 2 ? 'right' : 'left') + '">' +
               '<div class="catalog-card__media">' +
                 '<img src="' + escapeHtml(course.image) + '" alt="' + escapeHtml(course.title) + '">' +
-                '<span class="catalog-card__badge">Admission Open</span>' +
+                (course.category === 'open' ? '<span class="catalog-card__badge">Admission Open</span>' : '') +
               '</div>' +
               '<div class="catalog-card__body">' +
                 '<p class="catalog-card__category">' + escapeHtml(labels[course.category] || course.category) + '</p>' +
@@ -157,8 +158,12 @@
 
       tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-          tabs.forEach(function (item) { item.classList.remove('is-active'); });
+          tabs.forEach(function (item) {
+            item.classList.remove('is-active');
+            item.setAttribute('aria-selected', 'false');
+          });
           tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
           render(tab.getAttribute('data-filter'));
         });
       });

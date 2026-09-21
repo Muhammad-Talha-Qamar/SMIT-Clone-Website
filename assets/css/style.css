@@ -322,6 +322,17 @@ a:visited {
   text-decoration: none;
 }
 
+.site-footer__copy {
+  margin: 0;
+  text-align: center;
+}
+
+.site-footer__credit {
+  display: block;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
 /* ====================================================
    RESPONSIVE MEDIA QUERIES (Mobile & Tablet Support)
    ==================================================== */

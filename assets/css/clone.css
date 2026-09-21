@@ -142,6 +142,8 @@ body {
 }
 
 .city-chip {
+  display: inline-flex;
+  text-decoration: none;
   border: 1px solid #dbe4ee;
   background: #fff;
   color: #334155;

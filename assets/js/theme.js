@@ -41,6 +41,14 @@
     var btn = event.target.closest ? event.target.closest('#theme-toggle') : null;
     if (!btn) return;
     event.preventDefault();
+    if (event.target.closest('.theme-toggle__option--light')) {
+      applyTheme('light');
+      return;
+    }
+    if (event.target.closest('.theme-toggle__option--dark')) {
+      applyTheme('dark');
+      return;
+    }
     toggleTheme();
   });
 })();

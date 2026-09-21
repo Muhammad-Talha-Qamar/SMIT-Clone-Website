@@ -39,13 +39,22 @@
               '</div>' +
             '</div>' +
             '<a href="./campuses.html" class="site-nav__link' + isActive('campuses.html') + '">Campuses</a>' +
-            '<a href="./check-results.html" class="site-nav__link' + isActive('check-results.html') + '">Check Result</a>' +
+            '<a href="./check-results.html#result" class="site-nav__link' + isActive('check-results.html') + '">Check Results</a>' +
           '</nav>' +
           '<a href="./check-results.html" class="site-cta">Enroll Now</a>' +
         '</div>' +
         '<button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Dark mode">' +
-          '<i class="fa-solid fa-moon theme-toggle__moon" aria-hidden="true"></i>' +
-          '<i class="fa-solid fa-sun theme-toggle__sun" aria-hidden="true"></i>' +
+          '<span class="theme-toggle__option theme-toggle__option--light" aria-hidden="true">' +
+            '<svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none">' +
+              '<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>' +
+              '<path d="M12 3v2M12 19v2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M3 12h2M19 12h2M5.6 18.4l1.4-1.4M17 7l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+            '</svg>' +
+          '</span>' +
+          '<span class="theme-toggle__option theme-toggle__option--dark" aria-hidden="true">' +
+            '<svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="currentColor">' +
+              '<path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z"/>' +
+            '</svg>' +
+          '</span>' +
         '</button>' +
         '<button id="nav-toggle" class="nav-burger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">' +
           '<span></span><span></span><span></span>' +
@@ -217,7 +226,7 @@
   function cancelClose() {
     clearTimeout(closeTimer);
     closeTimer = null;
-    if (!coursesMega.classList.contains('is-open')) setCoursesOpen(true);
+    if (coursesMega && !coursesMega.classList.contains('is-open')) setCoursesOpen(true);
   }
 
   function onScroll() {
@@ -336,5 +345,50 @@
       setMobileOpen(false);
       positionMegaMenu();
     });
+  }
+
+  if (!document.querySelector('footer.site-footer')) {
+    var footer = document.createElement('footer');
+    footer.className = 'site-footer mt-8 w-full bg-gradient-to-br from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] font-montserrat text-gray-300';
+    footer.innerHTML =
+      '<div class="relative mx-auto max-w-6xl overflow-hidden px-6 py-8 md:px-10">' +
+        '<div class="mb-4 flex items-center justify-start">' +
+          '<div class="relative w-[92px]"><img src="./assets/images/logos/transparent_logo.png" alt="Saylani Mass IT Training" class="block h-auto w-full object-contain" width="80" height="40"></div>' +
+          '<div class="ml-4 mt-2 w-[152px]"><a href="https://saylaniwelfare.com/" target="_blank" rel="noopener noreferrer"><img src="./assets/images/logos/saylani_logo.webp" alt="Saylani Logo" class="block h-auto w-full object-contain" width="120" height="40"></a></div>' +
+        '</div>' +
+        '<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-12">' +
+          '<div class="md:col-span-2 lg:col-span-4">' +
+            '<p class="mb-6 text-left text-sm leading-relaxed text-gray-400">Empowering Pakistan\'s youth with world-class IT education and training programs to build a brighter digital future.</p>' +
+            '<div class="mb-6 flex flex-col gap-3">' +
+              '<div class="flex items-start gap-3 text-sm text-gray-400"><i class="fa-solid fa-location-dot mt-0.5 text-brand-primary" aria-hidden="true"></i><span>A-25, Bahadurabad Chowrangi, Karachi, Pakistan</span></div>' +
+              '<div class="flex items-start gap-3 text-sm text-gray-400"><i class="fa-solid fa-phone mt-0.5 text-brand-green" aria-hidden="true"></i><a href="tel:+9221111729526" class="text-gray-400 hover:text-white">+92 21 111 729 526</a></div>' +
+              '<div class="flex items-start gap-3 text-sm text-gray-400"><i class="fa-solid fa-envelope mt-0.5 text-brand-primary" aria-hidden="true"></i><a href="mailto:saylanimass@gmail.com" class="text-gray-400 hover:text-white">saylanimass@gmail.com</a></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="lg:col-span-2"><h3 class="mb-6 text-lg font-bold text-white">Quick Links</h3><ul class="flex flex-col gap-3">' +
+            '<li><a href="./index.html" class="text-sm text-gray-400 hover:text-white">Home</a></li>' +
+            '<li><a href="./about.html" class="text-sm text-gray-400 hover:text-white">About</a></li>' +
+            '<li><a href="./check-results.html" class="text-sm text-gray-400 hover:text-white">Enroll Now</a></li>' +
+            '<li><a href="./check-results.html#result" class="text-sm text-gray-400 hover:text-white">Check Results</a></li>' +
+          '</ul></div>' +
+          '<div class="lg:col-span-3"><h3 class="mb-6 text-lg font-bold text-white">Resources</h3><ul class="flex flex-col gap-3">' +
+            '<li><a href="./courses.html" class="text-sm text-gray-400 hover:text-white">Courses</a></li>' +
+            '<li><a href="./campuses.html" class="text-sm text-gray-400 hover:text-white">Campuses</a></li>' +
+            '<li><a href="./check-results.html#idcard" class="text-sm text-gray-400 hover:text-white">Download ID Card</a></li>' +
+            '<li><a href="./check-results.html#entrytest" class="text-sm text-gray-400 hover:text-white">Entry Test Status</a></li>' +
+          '</ul></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="border-t border-gray-700"><div class="mx-auto max-w-6xl px-6 py-6 text-center text-sm text-gray-400">© 2013 - 2026 <span class="font-semibold text-white">Saylani Mass IT Training</span>. All rights reserved.<span class="mt-1 block">Made by M. Talha Qamar</span></div></div>';
+    document.body.appendChild(footer);
+  }
+
+  if (!document.querySelector('[aria-label="Chat with us"]') && !document.getElementById('contact')) {
+    var chat = document.createElement('a');
+    chat.href = 'mailto:saylanimass@gmail.com';
+    chat.className = 'fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f80ed] text-white shadow-lg transition hover:scale-105';
+    chat.setAttribute('aria-label', 'Chat with us');
+    chat.innerHTML = '<i class="fa-regular fa-comment-dots text-2xl" aria-hidden="true"></i>';
+    document.body.appendChild(chat);
   }
 })();

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Saylani Mass IT Training</title>
+  <title>Check Results | Saylani Mass IT Training</title>
+  <meta name="description" content="Register for SMIT courses, download your ID card, and check entry test status or exam results.">
   <script>
     (function () {
       try {
@@ -151,7 +152,7 @@
     <div class="glow-bottom-left" aria-hidden="true"></div>
 
     <div class="smit-hero-container">
-      <a href="#" id="hero-badge" class="smit-pill-badge" data-reveal="left">
+      <a href="./check-results.html" id="hero-badge" class="smit-pill-badge" data-reveal="left">
         <i class="fa-solid fa-arrow-right-to-bracket"></i>
         <span id="hero-badge-text">Registration Form</span>
       </a>
@@ -165,21 +166,21 @@
 
   <!-- Navigation Tab Bar -->
   <section class="max-w-6xl mx-auto px-4 mt-8">
-    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-6" data-reveal-stagger="up">
-      <button class="tab-btn active" onclick="switchTab('registration')">
-        <i class="fa-regular fa-id-card"></i>
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-6" role="tablist" aria-label="Student portal sections" data-reveal-stagger="up">
+      <button type="button" class="tab-btn active" data-tab="registration" aria-selected="true">
+        <i class="fa-regular fa-id-card" aria-hidden="true"></i>
         <span>Registration Form</span>
       </button>
-      <button class="tab-btn" onclick="switchTab('idcard')">
-        <i class="fa-solid fa-address-card"></i>
+      <button type="button" class="tab-btn" data-tab="idcard" aria-selected="false">
+        <i class="fa-solid fa-address-card" aria-hidden="true"></i>
         <span>Download ID Card</span>
       </button>
-      <button class="tab-btn" onclick="switchTab('entrytest')">
-        <i class="fa-solid fa-file-pen"></i>
+      <button type="button" class="tab-btn" data-tab="entrytest" aria-selected="false">
+        <i class="fa-solid fa-file-pen" aria-hidden="true"></i>
         <span>Entry Test Status</span>
       </button>
-      <button class="tab-btn" onclick="switchTab('result')">
-        <i class="fa-solid fa-square-poll-vertical"></i>
+      <button type="button" class="tab-btn" data-tab="result" aria-selected="false">
+        <i class="fa-solid fa-square-poll-vertical" aria-hidden="true"></i>
         <span>Result</span>
       </button>
     </div>
@@ -190,8 +191,10 @@
 
     <!-- 1. REGISTRATION FORM TAB -->
     <div id="tab-registration" class="tab-content">
-      <form class="space-y-8 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm">
+      <form id="registration-form" class="space-y-8 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm" novalidate>
         
+        <p id="form-message" class="hidden rounded-lg px-4 py-3 text-sm font-semibold" role="status"></p>
+
         <!-- Location & Course Details -->
         <div>
           <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
@@ -199,20 +202,20 @@
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Select Country*</label>
-              <select class="portal-input"><option>Select country</option><option>Pakistan</option></select>
+              <label for="country" class="block text-xs font-semibold text-slate-600 mb-1">Select Country*</label>
+              <select id="country" name="country" required class="portal-input"><option value="">Select country</option><option value="Pakistan">Pakistan</option></select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Select class preference*</label>
-              <select class="portal-input"><option>Select class preference</option><option>Onsite</option><option>Online</option></select>
+              <label for="class-preference" class="block text-xs font-semibold text-slate-600 mb-1">Select class preference*</label>
+              <select id="class-preference" name="classPreference" required class="portal-input"><option value="">Select class preference</option><option value="Onsite">Onsite</option><option value="Online">Online</option></select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Select Gender*</label>
-              <select class="portal-input"><option>Select gender</option><option>Male</option><option>Female</option></select>
+              <label for="gender" class="block text-xs font-semibold text-slate-600 mb-1">Select Gender*</label>
+              <select id="gender" name="gender" required class="portal-input"><option value="">Select gender</option><option value="Male">Male</option><option value="Female">Female</option></select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Select City*</label>
-              <select class="portal-input"><option>Select city</option><option>Karachi</option><option>Lahore</option></select>
+              <label for="city" class="block text-xs font-semibold text-slate-600 mb-1">Select City*</label>
+              <select id="city" name="city" required class="portal-input"><option value="">Select city</option><option value="Karachi">Karachi</option><option value="Lahore">Lahore</option></select>
             </div>
           </div>
         </div>
@@ -224,28 +227,28 @@
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Full Name *</label>
-              <input type="text" placeholder="Enter your full name" class="portal-input">
+              <label for="full-name" class="block text-xs font-semibold text-slate-600 mb-1">Full Name *</label>
+              <input id="full-name" name="fullName" type="text" autocomplete="name" required placeholder="Enter your full name" class="portal-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Father Name *</label>
-              <input type="text" placeholder="Enter father's name" class="portal-input">
+              <label for="father-name" class="block text-xs font-semibold text-slate-600 mb-1">Father Name *</label>
+              <input id="father-name" name="fatherName" type="text" required placeholder="Enter father's name" class="portal-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Email *</label>
-              <input type="email" placeholder="your.email@example.com" class="portal-input">
+              <label for="email" class="block text-xs font-semibold text-slate-600 mb-1">Email *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="your.email@example.com" class="portal-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Phone *</label>
-              <input type="tel" placeholder="Enter phone number" class="portal-input">
+              <label for="phone" class="block text-xs font-semibold text-slate-600 mb-1">Phone *</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="Enter phone number" class="portal-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">CNIC / B-Form *</label>
-              <input type="text" placeholder="4201012345671" class="portal-input">
+              <label for="cnic" class="block text-xs font-semibold text-slate-600 mb-1">CNIC / B-Form *</label>
+              <input id="cnic" name="cnic" type="text" required minlength="13" maxlength="13" placeholder="4201012345671" class="portal-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-600 mb-1">Father's CNIC *</label>
-              <input type="text" placeholder="4201012345671" class="portal-input">
+              <label for="father-cnic" class="block text-xs font-semibold text-slate-600 mb-1">Father's CNIC *</label>
+              <input id="father-cnic" name="fatherCnic" type="text" required minlength="13" maxlength="13" placeholder="4201012345671" class="portal-input">
             </div>
           </div>
         </div>
@@ -266,11 +269,12 @@
         <p class="text-xs text-slate-500 mb-6">Enter the CNIC you provided during form submission.<br>⚠️ Don't use dashes (-) in CNIC number.</p>
         
         <div class="text-left mb-6">
-          <label class="block text-xs font-bold text-slate-700 mb-2">CNIC Number*</label>
-          <input type="text" placeholder="4220109966883" class="portal-input text-center text-lg tracking-wider">
+          <label for="idcard-cnic" class="block text-xs font-bold text-slate-700 mb-2">CNIC Number*</label>
+          <input id="idcard-cnic" type="text" required minlength="13" maxlength="13" inputmode="numeric" placeholder="4220109966883" class="portal-input text-center text-lg tracking-wider">
         </div>
 
-        <button type="button" class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+        <p class="portal-feedback hidden mb-4 text-sm font-semibold" role="status"></p>
+        <button type="button" class="portal-search w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
           <i class="fa-solid fa-magnifying-glass"></i> Search
         </button>
       </div>
@@ -283,11 +287,12 @@
         <p class="text-xs text-slate-500 mb-6">Enter your roll number to view your entry test / induction status</p>
         
         <div class="text-left mb-6">
-          <label class="block text-xs font-bold text-slate-700 mb-2">Roll Number*</label>
-          <input type="text" placeholder="ENTER YOUR ROLL NUMBER" class="portal-input text-center text-lg uppercase">
+          <label for="entry-roll" class="block text-xs font-bold text-slate-700 mb-2">Roll Number*</label>
+          <input id="entry-roll" type="text" required placeholder="ENTER YOUR ROLL NUMBER" class="portal-input text-center text-lg uppercase">
         </div>
 
-        <button type="button" class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+        <p class="portal-feedback hidden mb-4 text-sm font-semibold" role="status"></p>
+        <button type="button" class="portal-search w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
           <i class="fa-solid fa-magnifying-glass"></i> Check Status
         </button>
       </div>
@@ -300,11 +305,12 @@
         <p class="text-xs text-slate-500 mb-6">Enter your roll number to view your examination results</p>
         
         <div class="text-left mb-6">
-          <label class="block text-xs font-bold text-slate-700 mb-2">Roll Number*</label>
-          <input type="text" placeholder="ENTER YOUR ROLL NUMBER" class="portal-input text-center text-lg uppercase">
+          <label for="result-roll" class="block text-xs font-bold text-slate-700 mb-2">Roll Number*</label>
+          <input id="result-roll" type="text" required placeholder="ENTER YOUR ROLL NUMBER" class="portal-input text-center text-lg uppercase">
         </div>
 
-        <button type="button" class="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
+        <p class="portal-feedback hidden mb-4 text-sm font-semibold" role="status"></p>
+        <button type="button" class="portal-search w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center justify-center gap-2">
           <i class="fa-solid fa-magnifying-glass"></i> Search Result
         </button>
       </div>
@@ -337,15 +343,25 @@
       }
     };
 
-    function switchTab(tabKey) {
-      // 1. Hide all tab contents
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      
-      // 2. Remove active class from buttons
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    function tabFromHash() {
+      var key = (window.location.hash || '').replace('#', '').toLowerCase();
+      if (key === 'idcard' || key === 'entrytest' || key === 'result' || key === 'registration') return key;
+      return 'registration';
+    }
 
-      // 3. Show selected tab content & highlight button
-      const selectedContent = document.getElementById(`tab-${tabKey}`);
+    function switchTab(tabKey, updateHash) {
+      if (!tabData[tabKey]) tabKey = 'registration';
+
+      document.querySelectorAll('.tab-content').forEach(function (el) {
+        el.classList.add('hidden');
+      });
+      document.querySelectorAll('.tab-btn').forEach(function (btn) {
+        var isActive = btn.getAttribute('data-tab') === tabKey;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      var selectedContent = document.getElementById('tab-' + tabKey);
       if (selectedContent) {
         selectedContent.classList.remove('hidden');
         selectedContent.querySelectorAll('[data-reveal]').forEach(function (el) {
@@ -354,22 +370,63 @@
         if (window.observeReveal) window.observeReveal(selectedContent);
       }
 
-      const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(
-        btn => btn.getAttribute('onclick').includes(tabKey)
-      );
-      if (targetBtn) targetBtn.classList.add('active');
-
-      // 4. Update Hero Banner Text & Badge
-      const data = tabData[tabKey];
+      var data = tabData[tabKey];
       if (data) {
         document.getElementById('hero-badge-text').textContent = data.badge;
         document.getElementById('hero-title').textContent = data.title;
         document.getElementById('hero-subtitle').textContent = data.subtitle;
       }
+
+      if (updateHash !== false && window.location.hash.replace('#', '') !== tabKey) {
+        history.replaceState(null, '', '#' + tabKey);
+      }
     }
+
+    document.querySelectorAll('.tab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        switchTab(btn.getAttribute('data-tab'));
+      });
+    });
+    window.addEventListener('hashchange', function () {
+      switchTab(tabFromHash(), false);
+    });
+    switchTab(tabFromHash(), false);
+
+    var registrationForm = document.getElementById('registration-form');
+    if (registrationForm) {
+      registrationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var message = document.getElementById('form-message');
+        if (!registrationForm.checkValidity()) {
+          message.textContent = 'Please fill in all required fields correctly.';
+          message.className = 'rounded-lg px-4 py-3 text-sm font-semibold bg-red-50 text-red-700';
+          registrationForm.reportValidity();
+          return;
+        }
+        message.textContent = 'Registration submitted successfully. Our team will contact you soon.';
+        message.className = 'rounded-lg px-4 py-3 text-sm font-semibold bg-green-50 text-green-700';
+        registrationForm.reset();
+      });
+    }
+
+    document.querySelectorAll('.portal-search').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var panel = button.closest('.tab-content');
+        var input = panel.querySelector('input');
+        var feedback = panel.querySelector('.portal-feedback');
+        if (!feedback) return;
+        if (!input || !input.value.trim()) {
+          feedback.textContent = 'Please enter the required information first.';
+          feedback.className = 'portal-feedback mb-4 text-sm font-semibold text-red-600';
+          return;
+        }
+        feedback.textContent = 'No matching record was found for this demo form.';
+        feedback.className = 'portal-feedback mb-4 text-sm font-semibold text-slate-600';
+      });
+    });
   </script>
-  <script src="./assets/js/theme.js"></script>
-  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/theme.js?v=5"></script>
+  <script src="./assets/js/nav.js?v=6"></script>
   <script src="./assets/js/reveal.js"></script>
 </body>
 </html>
