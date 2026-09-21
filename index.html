@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Saylani Mass IT Training</title>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('smit-theme') === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/x-icon" href="./assets/images/logos/main image.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -12,6 +21,7 @@
   <link rel="stylesheet" href="./assets/css/fonts.css">
   <link rel="stylesheet" href="./assets/css/clone.css">
   <link rel="stylesheet" href="./assets/css/nav.css">
+  <link rel="stylesheet" href="./assets/css/theme-black.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./assets/js/tailwind-config.js"></script>
 </head>
@@ -422,6 +432,7 @@
     </div>
   </div>
 
+  <script src="./assets/js/theme.js"></script>
   <script src="./assets/js/nav.js"></script>
   <script src="./assets/js/reveal.js"></script>
   <script>

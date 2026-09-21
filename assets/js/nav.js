@@ -43,10 +43,15 @@
           '</nav>' +
           '<a href="./check-results.html" class="site-cta">Enroll Now</a>' +
         '</div>' +
+        '<button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Dark mode">' +
+          '<i class="fa-solid fa-moon theme-toggle__moon" aria-hidden="true"></i>' +
+          '<i class="fa-solid fa-sun theme-toggle__sun" aria-hidden="true"></i>' +
+        '</button>' +
         '<button id="nav-toggle" class="nav-burger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">' +
           '<span></span><span></span><span></span>' +
         '</button>' +
       '</div>';
+    if (window.smitTheme) window.smitTheme.apply(window.smitTheme.get());
   }
 
   var toggle = document.getElementById('nav-toggle');

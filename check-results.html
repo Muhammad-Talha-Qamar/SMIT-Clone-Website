@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Saylani Mass IT Training</title>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('smit-theme') === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/x-icon" href="./assets/images/logos/main image.png">
   
   <!-- External Libraries & Fonts -->
@@ -15,6 +24,7 @@
   
   <!-- Tailwind CSS CDN -->
   <link rel="stylesheet" href="./assets/css/nav.css">
+  <link rel="stylesheet" href="./assets/css/theme-black.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./assets/js/tailwind-config.js"></script>
 
@@ -358,6 +368,7 @@
       }
     }
   </script>
+  <script src="./assets/js/theme.js"></script>
   <script src="./assets/js/nav.js"></script>
   <script src="./assets/js/reveal.js"></script>
 </body>
