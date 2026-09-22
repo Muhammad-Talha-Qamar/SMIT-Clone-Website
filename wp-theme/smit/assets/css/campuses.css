@@ -1,0 +1,348 @@
+/* Base Hero Banner styling */
+    .smit-hero-banner {
+      position: relative;
+      width: 100%;
+      margin-top: 68px;
+      background-color: #0b73b7;
+      background-image: linear-gradient(90deg, #1c7ed6 0%, #3aa07a 52%, #6db51a 100%);
+      color: #ffffff;
+      padding: 48px 24px;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+
+    .glow-top-right {
+      position: absolute;
+      top: -32px;
+      right: -32px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(59, 130, 246, 0.4);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(50%, -50%);
+      pointer-events: none;
+    }
+
+    .glow-bottom-left {
+      position: absolute;
+      bottom: -32px;
+      left: 16px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(56, 189, 248, 0.3);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+    }
+
+    .smit-hero-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1152px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .smit-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .smit-pill-badge:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .pill-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .smit-hero-heading {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .smit-hero-subheading {
+      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      max-width: 680px;
+    }
+
+    /* Campuses Section & Grid */
+    .campuses-section {
+      width: 100%;
+      background-color: #f8fafc;
+      padding: 40px 20px 80px 20px;
+      font-family: "Montserrat", system-ui, sans-serif;
+    }
+
+    .campuses-container {
+      max-width: 1152px;
+      margin: 0 auto;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 16px;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .map-stage {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    .map-image-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .map-markers {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .map-marker {
+      position: absolute;
+      z-index: 10;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+    }
+
+    .map-marker-hit {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .map-pin-icon {
+      width: 24px;
+      height: 24px;
+      color: #0b73b7;
+      fill: #ffffff;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .map-marker:hover .map-pin-icon,
+    .map-marker.is-active .map-pin-icon {
+      transform: scale(1.2);
+      color: #08629c;
+    }
+
+    .map-marker-label {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-top: 8px;
+      transform: translateX(-50%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .map-marker-label span {
+      display: inline-block;
+      white-space: nowrap;
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #2d2d2d;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px rgba(15, 23, 42, 0.08);
+      padding: 6px 12px;
+    }
+
+    .map-hint {
+      margin: 0 0 24px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .campus-card.is-hidden {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .map-stage {
+        height: 500px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .map-stage {
+        height: 600px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .map-stage {
+        height: 700px;
+      }
+    }
+
+    .city-select-wrapper {
+      margin-bottom: 24px;
+    }
+
+    .city-select-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .city-select-input {
+      width: 100%;
+      max-width: 320px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      color: #1e293b;
+      outline: none;
+    }
+
+    .campus-stats-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #e0f2fe;
+      color: #0284c7;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 9999px;
+    }
+
+    .campus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .campus-card {
+      position: relative;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .campus-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .campus-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .campus-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #0b73b7;
+      font-size: 1.2rem;
+    }
+
+    .campus-city {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+
+    .campus-count {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #0b73b7;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .campus-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Media Queries for Campus Grid */
+    @media (max-width: 1024px) {
+      .campus-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .smit-hero-banner {
+        padding: 32px 16px;
+      }
+      .campus-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .campus-grid {
+        grid-template-columns: 1fr;
+      }
+    }

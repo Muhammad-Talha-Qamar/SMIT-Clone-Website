@@ -1,0 +1,20 @@
+SMIT WordPress (MAMP) — local access
+====================================
+Site:   http://localhost:8888/smit/
+Admin:  http://localhost:8888/smit/wp-admin/
+User:   admin
+Pass:   admin123
+
+Database: smit_wp
+MySQL:    127.0.0.1:8889  user=root  pass=root
+
+Theme source (symlinked into MAMP):
+  /Users/manaltalha/Desktop/Assignments/SMIT-Clone-Website/wp-theme/smit
+  -> /Applications/MAMP/htdocs/smit/wp-content/themes/smit
+
+Start servers:
+  1. Open /Applications/MAMP/MAMP.app
+  2. Click Start
+  Or: /Applications/MAMP/bin/startMysql.sh && /Applications/MAMP/Library/bin/apachectl start
+
+Re-run setup: bash scripts/setup-mamp-wordpress.sh

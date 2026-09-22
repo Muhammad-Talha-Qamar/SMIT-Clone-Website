@@ -1,0 +1,5 @@
+
+# Local WordPress staging (installed into MAMP htdocs)
+.DS_Store
+/local-wordpress/
+/scripts/wp-cli.phar

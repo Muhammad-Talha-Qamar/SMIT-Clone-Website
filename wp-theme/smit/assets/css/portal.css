@@ -1,0 +1,108 @@
+/* Hero Banner styling */
+    .smit-hero-banner {
+      position: relative;
+      width: 100%;
+      margin-top: 68px;
+      background-color: #0b73b7;
+      background-image: linear-gradient(90deg, #1c7ed6 0%, #3aa07a 52%, #6db51a 100%);
+      color: #ffffff;
+      padding: 48px 24px;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+
+    .glow-top-right {
+      position: absolute;
+      top: -32px;
+      right: -32px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(59, 130, 246, 0.4);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(50%, -50%);
+      pointer-events: none;
+    }
+
+    .glow-bottom-left {
+      position: absolute;
+      bottom: -32px;
+      left: 16px;
+      width: 256px;
+      height: 256px;
+      background-color: rgba(56, 189, 248, 0.3);
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+    }
+
+    .smit-hero-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1152px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .smit-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    /* Tab Switcher Styling */
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #475569;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background-color: #0b73b7;
+      color: #ffffff;
+      border-color: #0b73b7;
+      box-shadow: 0 4px 12px rgba(11, 115, 183, 0.25);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background-color: #f1f5f9;
+      color: #0b73b7;
+    }
+
+    /* Input & Select Box Customizations */
+    .portal-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      background-color: #ffffff;
+    }
+
+    .portal-input:focus {
+      border-color: #0b73b7;
+      box-shadow: 0 0 0 3px rgba(11, 115, 183, 0.1);
+    }
