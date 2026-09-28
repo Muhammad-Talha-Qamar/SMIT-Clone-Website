@@ -100,11 +100,13 @@ a:visited {
 }
 
 /* Mobile Floating Contact Icon */
-#contact {
+#contact,
+a[aria-label="Chat with us"] {
   position: fixed;
   right: 20px;
   bottom: 20px;
   z-index: 9998;
+  text-decoration: none !important;
 }
 
 .contact-img {

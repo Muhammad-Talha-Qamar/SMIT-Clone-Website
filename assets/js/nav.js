@@ -383,12 +383,22 @@
     document.body.appendChild(footer);
   }
 
-  if (!document.querySelector('[aria-label="Chat with us"]') && !document.getElementById('contact')) {
+  // Normalize floating contact FAB so every page shares the same control.
+  var existingContact = document.getElementById('contact');
+  var existingChat = document.querySelector('[aria-label="Chat with us"]');
+  if (existingContact && existingContact !== existingChat) {
+    existingContact.remove();
+    existingChat = null;
+  }
+  if (!existingChat) {
     var chat = document.createElement('a');
     chat.href = 'mailto:saylanimass@gmail.com';
-    chat.className = 'fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f80ed] text-white shadow-lg transition hover:scale-105';
+    chat.id = 'contact';
+    chat.className = 'fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f80ed] text-white no-underline shadow-lg transition hover:scale-105';
     chat.setAttribute('aria-label', 'Chat with us');
     chat.innerHTML = '<i class="fa-regular fa-comment-dots text-2xl" aria-hidden="true"></i>';
     document.body.appendChild(chat);
+  } else if (!existingChat.id) {
+    existingChat.id = 'contact';
   }
 })();

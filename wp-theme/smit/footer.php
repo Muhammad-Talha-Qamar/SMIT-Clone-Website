@@ -123,7 +123,7 @@ $terms   = smit_page_url( 'terms', '/terms/' );
 	</div>
 </footer>
 
-<a href="mailto:saylanimass@gmail.com" class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f80ed] text-white shadow-lg transition hover:scale-105" aria-label="Chat with us" data-reveal="right">
+<a href="mailto:saylanimass@gmail.com" class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#2f80ed] text-white no-underline shadow-lg transition hover:scale-105" aria-label="Chat with us" data-reveal="right">
 	<i class="fa-regular fa-comment-dots text-2xl" aria-hidden="true"></i>
 </a>
 

@@ -79,6 +79,34 @@
 
   var registrationForm = document.getElementById('registration-form');
   if (registrationForm) {
+    var addressInput = document.getElementById('address');
+    var addressCount = document.getElementById('address-count');
+    if (addressInput && addressCount) {
+      addressInput.addEventListener('input', function () {
+        addressCount.textContent = String(addressInput.value.length);
+      });
+    }
+
+    var pictureInput = document.getElementById('picture-upload');
+    var pictureFilename = document.getElementById('picture-filename');
+    if (pictureInput && pictureFilename) {
+      pictureInput.addEventListener('change', function () {
+        var file = pictureInput.files && pictureInput.files[0];
+        if (!file) {
+          pictureFilename.textContent = '';
+          return;
+        }
+        if (file.size > 1024 * 1024) {
+          pictureFilename.textContent = 'File must be less than 1MB.';
+          pictureFilename.className = 'text-xs text-red-600';
+          pictureInput.value = '';
+          return;
+        }
+        pictureFilename.textContent = file.name;
+        pictureFilename.className = 'text-xs text-slate-500';
+      });
+    }
+
     registrationForm.addEventListener('submit', function (event) {
       event.preventDefault();
       var message = document.getElementById('form-message');
@@ -92,6 +120,8 @@
       message.textContent = 'Registration submitted successfully. Our team will contact you soon.';
       message.className = 'rounded-lg px-4 py-3 text-sm font-semibold bg-green-50 text-green-700';
       registrationForm.reset();
+      if (addressCount) addressCount.textContent = '0';
+      if (pictureFilename) pictureFilename.textContent = '';
     });
   }
 

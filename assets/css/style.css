@@ -18,6 +18,12 @@ a:visited {
   font-family: "Montserrat", system-ui, -apple-system, sans-serif;
 }
 
+/* Floating chat FAB — kill default link underline under the icon */
+#contact,
+a[aria-label="Chat with us"] {
+  text-decoration: none !important;
+}
+
 /* Header & Main Navbar */
 .Main {
   width: 100%;
@@ -99,25 +105,7 @@ a:visited {
   transition: all 0.3s ease;
 }
 
-/* Mobile Floating Contact Icon */
-#contact {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 9998;
-}
-
-.contact-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease;
-}
-
-.contact-img:hover {
-  transform: scale(1.08);
-}
+/* Floating contact FAB is shared via Tailwind classes / nav.js */
 
 /* Page Graphic Banners & Layout Section */
 #tag2 {
