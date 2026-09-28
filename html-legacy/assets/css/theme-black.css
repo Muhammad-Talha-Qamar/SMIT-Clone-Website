@@ -1,0 +1,261 @@
+/* Dark mode — applied only when html has .theme-dark */
+
+html.theme-dark {
+  --nav-ink: #f4f4f5;
+  --nav-muted: #a1a1aa;
+  --nav-line: #27272a;
+  --nav-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+  background-color: #000000;
+}
+
+html.theme-dark,
+html.theme-dark body {
+  background-color: #000000;
+  color: #e4e4e7;
+}
+
+html.theme-dark .bg-white,
+html.theme-dark .bg-\[\#f7f9fc\],
+html.theme-dark .bg-\[\#f8fafc\],
+html.theme-dark .bg-\[\#f8fbff\],
+html.theme-dark .bg-slate-100 {
+  background-color: #111111 !important;
+}
+
+html.theme-dark body.bg-\[\#f7f9fc\],
+html.theme-dark body.bg-\[\#f8fafc\],
+html.theme-dark body.bg-white {
+  background-color: #000000 !important;
+}
+
+html.theme-dark .review-card .bg-white {
+  background-color: #ffffff !important;
+}
+
+html.theme-dark .bg-\[\#d7eaf6\],
+html.theme-dark .bg-\[\#f3edd4\] {
+  background-color: #1a1a1a !important;
+}
+
+html.theme-dark .text-gray-900,
+html.theme-dark .text-slate-800,
+html.theme-dark .text-\[\#1a1a1a\],
+html.theme-dark .text-\[\#1c1c1c\],
+html.theme-dark .text-\[\#222\],
+html.theme-dark .text-\[\#0f172a\] {
+  color: #fafafa !important;
+}
+
+html.theme-dark .text-slate-700 {
+  color: #d4d4d8 !important;
+}
+
+html.theme-dark .border-slate-100,
+html.theme-dark .border-slate-200,
+html.theme-dark .border-gray-300 {
+  border-color: #27272a !important;
+}
+
+html.theme-dark .border-b.border-slate-200 {
+  border-bottom-color: #27272a !important;
+}
+
+html.theme-dark .site-header::after,
+html.theme-dark .site-header.is-scrolled::after {
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom-color: #1f1f1f;
+}
+
+html.theme-dark .site-nav__link,
+html.theme-dark .site-nav__trigger {
+  color: #f4f4f5;
+}
+
+html.theme-dark .site-nav__link:hover,
+html.theme-dark .site-nav__link.is-active,
+html.theme-dark .site-nav__trigger:hover,
+html.theme-dark .courses-nav.is-open > .site-nav__trigger {
+  color: var(--nav-blue);
+}
+
+html.theme-dark .nav-burger {
+  background: #18181b;
+}
+
+html.theme-dark .nav-burger span {
+  background: #f4f4f5;
+}
+
+html.theme-dark .courses-mega__panel,
+html.theme-dark .courses-mega__footer,
+html.theme-dark .courses-mega__card {
+  background: #111111;
+  border-color: #27272a;
+}
+
+html.theme-dark .courses-mega__top {
+  background: #0a0a0a;
+  border-top-color: #27272a;
+}
+
+html.theme-dark .courses-mega__col-title {
+  color: #a1a1aa;
+}
+
+html.theme-dark .courses-mega__link,
+html.theme-dark .courses-mega__link:link,
+html.theme-dark .courses-mega__link:visited,
+html.theme-dark .courses-mega__card-title {
+  color: #e4e4e7;
+}
+
+html.theme-dark .courses-mega__card-meta {
+  color: #a1a1aa;
+}
+
+html.theme-dark .courses-mega__icon {
+  background:
+    linear-gradient(#111, #111) 50% 54%/14px 9px no-repeat,
+    linear-gradient(180deg, #1490d2, #0b73b7);
+}
+
+@media (max-width: 980px) {
+  html.theme-dark .site-header__panel {
+    background: #000000;
+    border-bottom-color: #27272a;
+  }
+
+  html.theme-dark .site-nav__link.is-active,
+  html.theme-dark .courses-nav.is-open > .site-nav__trigger {
+    background: #18181b;
+  }
+}
+
+html.theme-dark .page-hero,
+html.theme-dark .campuses-section,
+html.theme-dark .city-chip,
+html.theme-dark .catalog-tab,
+html.theme-dark .catalog-card,
+html.theme-dark .campus-card,
+html.theme-dark .city-select-input,
+html.theme-dark .portal-input,
+html.theme-dark .tab-btn,
+html.theme-dark .dropdown-menu,
+html.theme-dark .Main,
+html.theme-dark #min {
+  background-color: #000000;
+}
+
+html.theme-dark .page-hero,
+html.theme-dark .smit-hero-banner {
+  background-image: linear-gradient(90deg, #000000 0%, #121212 50%, #000000 100%);
+}
+
+html.theme-dark .city-chip,
+html.theme-dark .catalog-tab,
+html.theme-dark .catalog-card,
+html.theme-dark .campus-card,
+html.theme-dark .city-select-input,
+html.theme-dark .portal-input,
+html.theme-dark .tab-btn,
+html.theme-dark .dropdown-menu {
+  background-color: #111111;
+  border-color: #27272a;
+  color: #e4e4e7;
+}
+
+html.theme-dark .city-chip.is-active {
+  background: #2f80ed;
+  border-color: #2f80ed;
+  color: #ffffff;
+}
+
+html.theme-dark .catalog-intro h2,
+html.theme-dark .catalog-card__title,
+html.theme-dark .campus-city,
+html.theme-dark .h1,
+html.theme-dark .city-select-label,
+html.theme-dark .dropdown-menu li a {
+  color: #fafafa;
+}
+
+html.theme-dark .catalog-intro p,
+html.theme-dark .catalog-card__desc,
+html.theme-dark .campus-label,
+html.theme-dark .p,
+html.theme-dark .catalog-card__duration,
+html.theme-dark .map-hint {
+  color: #a1a1aa;
+}
+
+html.theme-dark .catalog-card__media {
+  background: #1a1a1a;
+}
+
+html.theme-dark .catalog-card__duration strong {
+  color: #e4e4e7;
+}
+
+html.theme-dark .catalog-cta a,
+html.theme-dark .catalog-cta a:visited {
+  background: #111111;
+  color: #fafafa;
+}
+
+html.theme-dark .stat-pill {
+  background-color: #0b1f2e;
+  color: #7dd3fc;
+}
+
+html.theme-dark .map-marker-label span {
+  color: #fafafa;
+  background: rgba(17, 17, 17, 0.95);
+  border-color: #27272a;
+}
+
+html.theme-dark .tab-btn:hover:not(.active) {
+  background-color: #1a1a1a;
+  color: #60a5fa;
+}
+
+html.theme-dark .hamburger .bar {
+  background-color: #f4f4f5;
+}
+
+html.theme-dark #item2,
+html.theme-dark #item3,
+html.theme-dark #item4,
+html.theme-dark #item5,
+html.theme-dark #item6 {
+  color: #f4f4f5;
+}
+
+html.theme-dark .dropdown-menu li a:hover {
+  background-color: #1a1a1a;
+  color: #60a5fa;
+}
+
+@media (max-width: 868px) {
+  html.theme-dark #min {
+    background-color: #000000;
+  }
+
+  html.theme-dark .dropdown-menu {
+    background-color: #111111;
+  }
+}
+
+html.theme-dark .site-footer {
+  background: #000000;
+}
+
+html.theme-dark .site-footer__social a {
+  background-color: #18181b;
+}
+
+html.theme-dark .theme-toggle {
+  border-color: #27272a;
+  color: #f4f4f5;
+  background: #111111;
+}
